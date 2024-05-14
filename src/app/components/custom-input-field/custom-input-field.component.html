@@ -1,0 +1,10 @@
+<div>
+  <label for="{{ id }}">{{ label }}</label>
+  <input
+    [id]="id"
+    [type]="showPassword ? 'text' : type"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    class="auth-input{{ class }}"
+  />
+</div>

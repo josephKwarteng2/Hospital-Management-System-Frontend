@@ -1,0 +1,26 @@
+<section>
+  <app-custom-input-field
+    id="email"
+    type="email"
+    [control]="emailForm.get('email')"
+    [label]="'Email Address'"
+    placeholder="Enter your email"
+    [required]="true"
+  />
+  <div class="icon">
+    <img src="assets/images/doctor/email.svg" class="icon-email" />
+  </div>
+  @if(getEmailErrors()){
+  <div class="validation-error-message">
+    {{ getEmailErrors() }}
+  </div>
+  }
+  <div class="button-wrapper">
+    <button>Send Link</button>
+    <div>
+      <p class="remember-password">
+        Remember password? <Span [routerLink]="['/login']">Login</Span>
+      </p>
+    </div>
+  </div>
+</section>

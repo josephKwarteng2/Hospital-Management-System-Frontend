@@ -1,0 +1,122 @@
+main {
+  header {
+    font-family: "MontserratSemiBold";
+    padding: 14px 24px 14px 0px;
+  }
+}
+
+section {
+  .actions-button {
+    padding: 2% 0;
+    display: flex;
+    justify-content: space-between;
+    div {
+      .icon-search {
+        position: relative;
+        left: -245px;
+        top: 5px;
+      }
+    }
+  }
+  .buttons-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .btn-filter {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #d0d5dd;
+    background: var(--bg-color);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .btn-filter:hover {
+    background: #d0d5dd;
+  }
+
+  .btn-invite {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .btn-invite:hover {
+    background: #16c798;
+  }
+
+  input {
+    padding: 10px 40px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid #d0d5dd;
+    background: var(--bg-color);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  }
+  input::placeholder {
+    color: var(--font-color-grey);
+    font-family: "MontserratRegular";
+    font-size: 12px;
+  }
+
+  input:focus {
+    border-radius: 8px;
+    border: 1px solid var(--input-focused-stroke);
+    box-shadow: 0px 1px 2px 0px rgba(125, 228, 204, 0.15),
+      0px 0px 0px 4px rgba(125, 228, 204, 0.15);
+    outline: var(--input-focused-stroke);
+  }
+}
+
+.filter-card {
+  display: inline-flex;
+  padding: 10px 24px;
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 10px;
+  background: #f9fafb;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  .specialization-filter {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 20px;
+    background: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    .specialization-filter p {
+      color: #344054;
+    }
+    .specialization-filter img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  .filter-reset-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 15px;
+    cursor: pointer;
+    color: #667085;
+    border-left: 2px solid #667085;
+  }
+}

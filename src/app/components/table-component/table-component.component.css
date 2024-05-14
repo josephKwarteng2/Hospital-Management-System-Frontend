@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+th,
+td {
+  text-align: start;
+  border-bottom: 1px solid #eaecf0;
+  padding: 12px 24px;
+}
+
+td {
+  font-size: 14px;
+  color: var(--font-color-grey);
+  font-family: "MontserratMedium";
+  padding: 20px;
+  text-align: start;
+}
+
+th {
+  background: #eaecf0;
+  color: #464646;
+  font-size: 14px;
+}
+
+/* .active {
+  color: var(--status-success);
+  background-color: #ecfdf3;
+  border-radius: 16px;
+}
+
+.inactive {
+  color: var(--status-error);
+  background-color: #fef3f2;
+  border-radius: 16px;
+} */

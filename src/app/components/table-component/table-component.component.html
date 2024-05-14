@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">
+        {{ header }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td
+        *ngFor="let item of row; let i = index"
+        [ngClass]="{
+          active: i === 4 && item === 'Active',
+          inactive: i === 4 && item === 'Inactive'
+        }"
+      >
+        {{ item }}
+      </td>
+      <td>
+        <img
+          src="assets/images/doctor/dots-vertical.svg"
+          alt="Actions dropdown"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

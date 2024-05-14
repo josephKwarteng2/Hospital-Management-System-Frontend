@@ -1,0 +1,18 @@
+section {
+  margin-top: 5%;
+}
+
+.remember-password {
+  color: #667085;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.remember-password span {
+  color: #287dfd;
+  cursor: pointer;
+}
+
+.remember-password span:hover {
+  text-decoration: underline;
+}

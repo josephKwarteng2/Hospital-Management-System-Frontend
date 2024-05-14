@@ -1,0 +1,47 @@
+<main class="faqs page">
+  <app-nav-bar />
+  <app-side-nav />
+  <header>
+    <h2>Frequently Asked Questions</h2>
+  </header>
+  <div class="top-section">
+    <app-search />
+    <div class="btn-wrapper">
+      <div class="btn-filter">
+        Published
+        <img src="assets/images/doctor/caret-down.svg" alt="Fliter Icon" />
+      </div>
+      <div class="faqs-btn">
+        <img src="assets/images/doctor/add.svg" alt="Icon plus" />
+        Add New FAQ
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="faqs-card" *ngFor="let faqs of faqsData">
+      <p class="question">{{ faqs.question }}</p>
+      <p class="answer">{{ faqs.answer }}</p>
+      <div class="faqs-btn-container">
+        <button>
+          <img
+            src="assets/images/admin/edit.svg"
+            alt="Edit Icon"
+            class="edit-icon"
+          />
+          Edit
+        </button>
+        <div>
+          <button>
+            <img
+              src="assets/images/admin/delete.svg"
+              alt="Edit Icon"
+              class="Delete-Icon"
+            />
+            <span>Delete</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

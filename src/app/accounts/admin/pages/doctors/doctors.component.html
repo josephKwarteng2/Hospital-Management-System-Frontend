@@ -1,0 +1,44 @@
+<main class="doctors page">
+  <app-nav-bar></app-nav-bar>
+  <app-side-nav></app-side-nav>
+  <header>
+    <h1>Doctors</h1>
+  </header>
+  <section>
+    <div class="actions-button">
+      <app-search></app-search>
+      <div class="buttons-wrapper">
+        <div class="btn-filter" (click)="toggleFilters()">
+          <img src="assets/images/doctor/filter-lines.svg" alt="Fliter Icon" />
+          Filters
+        </div>
+        <div class="btn-invite" (click)="openModal()">
+          <img src="assets/images/doctor/add.svg" alt="Icon plus" />
+          Invite Doctors
+        </div>
+      </div>
+    </div>
+  </section>
+  @if (showFilters) {
+  <div class="filter-card">
+    <div class="specialization-filter">
+      <p>Specialization</p>
+      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
+    </div>
+    <div class="specialization-filter">
+      <p>Rank</p>
+      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
+    </div>
+    <div class="specialization-filter">
+      <p>Status</p>
+      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
+    </div>
+    <div class="filter-reset-btn">
+      <img src="assets/images/admin/x-close.svg" alt="Icon Clear" />
+      <p>Clear all</p>
+    </div>
+  </div>
+  }
+
+  <app-doctor-details></app-doctor-details>
+</main>
