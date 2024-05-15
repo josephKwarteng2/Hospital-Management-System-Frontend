@@ -36,3 +36,15 @@ th {
   background-color: #fef3f2;
   border-radius: 16px;
 } */
+
+@media (max-width: 414px) {
+  th,
+  td {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  td {
+    padding: 12px 16px;
+  }
+}

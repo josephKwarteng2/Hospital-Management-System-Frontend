@@ -1,0 +1,6 @@
+@media (max-width: 414px) {
+  div {
+    width: 100%;
+    overflow-x: auto;
+  }
+}

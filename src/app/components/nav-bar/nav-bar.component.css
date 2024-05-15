@@ -75,3 +75,9 @@
     height: 10vh;
   }
 }
+
+@media (max-width: 992px) {
+  .logo-item {
+    margin-left: 20px;
+  }
+}
