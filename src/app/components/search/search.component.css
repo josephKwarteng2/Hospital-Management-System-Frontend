@@ -6,6 +6,7 @@ input {
   background: var(--bg-color);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
+
 input::placeholder {
   color: var(--font-color-grey);
   font-family: "MontserratRegular";
@@ -24,4 +25,10 @@ input:focus {
   position: relative;
   left: -90%;
   top: 5px;
+}
+
+@media (max-width: 414px) {
+  input {
+    width: 100%;
+  }
 }

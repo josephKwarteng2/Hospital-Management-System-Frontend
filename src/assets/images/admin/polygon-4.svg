@@ -1,0 +1,30 @@
+<svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="13" height="9" fill="#1E1E1E"/>
+<g id="ADMIN PAGES">
+<path d="M-2971 -6788C-2971 -6789.1 -2970.1 -6790 -2969 -6790H23903C23904.1 -6790 23905 -6789.1 23905 -6788V9862C23905 9863.1 23904.1 9864 23903 9864H-2969C-2970.11 9864 -2971 9863.11 -2971 9862V-6788Z" fill="#404040"/>
+<path d="M-2969 -6789H23903V-6791H-2969V-6789ZM23904 -6788V9862H23906V-6788H23904ZM23903 9863H-2969V9865H23903V9863ZM-2970 9862V-6788H-2972V9862H-2970ZM-2969 9863C-2969.55 9863 -2970 9862.55 -2970 9862H-2972C-2972 9863.66 -2970.66 9865 -2969 9865V9863ZM23904 9862C23904 9862.55 23903.6 9863 23903 9863V9865C23904.7 9865 23906 9863.66 23906 9862H23904ZM23903 -6789C23903.6 -6789 23904 -6788.55 23904 -6788H23906C23906 -6789.66 23904.7 -6791 23903 -6791V-6789ZM-2969 -6791C-2970.66 -6791 -2972 -6789.66 -2972 -6788H-2970C-2970 -6788.55 -2969.55 -6789 -2969 -6789V-6791Z" fill="white" fill-opacity="0.1"/>
+<g id=" Admin - Dashboard ">
+<rect width="1440" height="1635" transform="translate(-697 -201)" fill="white"/>
+<g id="Users summary">
+<g id="Number of Doctors" filter="url(#filter0_d_4_20357)">
+<rect x="-176" y="-15" width="226" height="147" rx="10" fill="white"/>
+<g id="Stats">
+<path id="Polygon 1" d="M6.5 0L12.1292 9H0.870835L6.5 0Z" fill="#FCC101"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_4_20357" x="-181" y="-20" width="236" height="157" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="2.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4_20357"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4_20357" result="shape"/>
+</filter>
+</defs>
+</svg>

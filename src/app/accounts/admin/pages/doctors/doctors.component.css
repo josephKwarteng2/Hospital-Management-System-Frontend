@@ -125,6 +125,8 @@ section {
   section .actions-button {
     flex-direction: column;
     align-items: center;
+    padding: 2% 0;
+
     div {
       .icon-search {
         position: relative;

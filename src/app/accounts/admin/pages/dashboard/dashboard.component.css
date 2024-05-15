@@ -1,0 +1,43 @@
+.card-container {
+  display: flex;
+  gap: 24px;
+  padding: 3% 0;
+}
+
+.new-users-card {
+  width: 20%;
+  height: 180px;
+  padding: 10px 15px;
+  gap: 24px 104px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.img {
+  display: flex;
+  gap: 200px;
+}
+
+.new-user {
+  display: block;
+  padding: 17% 0;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 414px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .new-users-card {
+    width: 100%;
+  }
+}

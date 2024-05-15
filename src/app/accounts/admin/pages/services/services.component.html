@@ -1,4 +1,25 @@
-<main>
+<main class="settings page">
   <app-side-nav />
   <app-nav-bar />
+  <header>
+    <h2>Services</h2>
+  </header>
+  <!-- <app-dropdown
+    [options]="['Option 1', 'Option 2', 'Option 3']"
+    (optionSelected)="handleOptionSelected($event)"
+  ></app-dropdown> -->
+  <div class="top-section">
+    <app-search />
+    <div class="btn-wrapper">
+      <div class="btn-filter">
+        All
+        <img src="assets/images/doctor/caret-down.svg" alt="Fliter Icon" />
+      </div>
+      <div class="services-btn">
+        <img src="assets/images/doctor/add.svg" alt="Icon plus" />
+        Add Service
+      </div>
+    </div>
+  </div>
+  <app-services-list />
 </main>

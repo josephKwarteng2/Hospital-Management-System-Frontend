@@ -1,0 +1,41 @@
+.btn-filter {
+  display: flex;
+  width: 81px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--Gray-300, #d0d5dd);
+  background: var(--Color, #fff);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  cursor: pointer;
+}
+
+.services-btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  gap: 10px;
+  cursor: pointer;
+}
+
+.services-btn:hover {
+  background: #16c798;
+}
+
+@media (max-width: 414px) {
+  h2 {
+    font-size: 22px;
+  }
+  .top-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}

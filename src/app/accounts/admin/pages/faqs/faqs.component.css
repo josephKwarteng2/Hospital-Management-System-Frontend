@@ -5,18 +5,6 @@ main {
   }
 }
 
-.top-section {
-  display: flex;
-  justify-content: space-between;
-  padding: 2% 0;
-  width: 95%;
-}
-
-.btn-wrapper {
-  display: flex;
-  gap: 20px;
-}
-
 .btn-filter {
   display: flex;
   justify-content: center;
