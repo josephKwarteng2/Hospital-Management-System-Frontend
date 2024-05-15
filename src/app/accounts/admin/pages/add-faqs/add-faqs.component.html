@@ -1,0 +1,29 @@
+<main class="add-faqs page">
+  <app-nav-bar />
+  <app-side-nav />
+  <header>
+    <h2>Add New FAQ</h2>
+  </header>
+  <div class="form-section">
+    <h2>FAQ Information</h2>
+    <app-custom-input-field
+      [label]="'Question*'"
+      [placeholder]="'Type a question'"
+    />
+    <label for="answer">Answer*</label>
+    <input type="text" placeholder="Type a question" />
+    <div class="actions-button">
+      <div class="btn-cancel">
+        <p>Cancel</p>
+      </div>
+      <div class="btn-wrapper">
+        <div class="btn-draft">
+          <p>Save as Draft</p>
+        </div>
+        <div class="btn-publish">
+          <p>Publish FAQ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

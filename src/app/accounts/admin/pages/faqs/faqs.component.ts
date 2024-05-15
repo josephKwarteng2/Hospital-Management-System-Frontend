@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from '@components/nav-bar/nav-bar.component';
 import { SearchComponent } from '@components/search/search.component';
 import { SideNavComponent } from '@components/side-nav/side-nav.component';
@@ -8,11 +9,19 @@ import { FAQ } from 'src/app/shared/models/interfaces';
 @Component({
   selector: 'app-faqs',
   standalone: true,
-  imports: [CommonModule, SideNavComponent, NavBarComponent, SearchComponent],
+  imports: [
+    CommonModule,
+    SideNavComponent,
+    NavBarComponent,
+    SearchComponent,
+    RouterLink,
+  ],
   templateUrl: './faqs.component.html',
   styleUrl: './faqs.component.css',
 })
 export class FaqsComponent {
+  router: Router = inject(Router);
+
   faqsData = [
     {
       question: 'Can I view my past appointments and medical history?',
@@ -36,4 +45,8 @@ export class FaqsComponent {
         'Yes, you can book appointments for family members or dependents through your account. Simply add their information to your profile, and you will be able to schedule appointments on their behalf.',
     },
   ];
+
+  openAddFaqPage() {
+    this.router.navigate(['/admin/add-faqs']);
+  }
 }

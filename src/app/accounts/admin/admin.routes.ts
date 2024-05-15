@@ -8,6 +8,7 @@ import { FaqsComponent } from './pages/faqs/faqs.component';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component';
+import { AddFaqsComponent } from './pages/add-faqs/add-faqs.component';
 
 export const AdminRoutes: Route[] = [
   {
@@ -24,5 +25,6 @@ export const AdminRoutes: Route[] = [
   { path: 'payments', component: PaymentsComponent },
   { path: 'medical-form', component: MedicalFormComponent },
   { path: 'faqs', component: FaqsComponent },
+  { path: 'add-faqs', component: AddFaqsComponent },
   { path: 'analytics', component: AnalyticsComponent },
 ];

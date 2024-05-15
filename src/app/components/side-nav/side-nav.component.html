@@ -1,4 +1,8 @@
-<nav class="sidebar">
+<div class="overlay" *ngIf="showNav"></div>
+<div class="hamburger-icon" (click)="toggleNav()">
+  <img src="assets/images/admin/list.svg" alt="Menu" />
+</div>
+<nav class="sidebar" [ngClass]="{ show: showNav }">
   <div class="sidebar-content">
     <div class="sidebar-menu">
       <ul>

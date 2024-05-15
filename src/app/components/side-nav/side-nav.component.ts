@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, HostListener } from '@angular/core';
 import {
   Router,
   RouterLink,
@@ -25,6 +25,19 @@ import {
 export class SideNavComponent implements OnInit {
   router: Router = inject(Router);
   http: HttpClient = inject(HttpClient);
+  public showNav = false;
 
   ngOnInit(): void {}
+
+  public toggleNav(): void {
+    this.showNav = !this.showNav;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.side-nav') && !target.closest('.hamburger-icon')) {
+      this.showNav = false;
+    }
+  }
 }
