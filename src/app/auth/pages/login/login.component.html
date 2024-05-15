@@ -3,58 +3,68 @@
     <app-auth-nav></app-auth-nav>
     <app-background-illustration></app-background-illustration>
   </div>
+  <div class="message success-message" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+  <div class="message error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
   <section class="auth-card">
     <div class="auth-card-content">
       <header class="auth-card-header">
         <h2>Login to your account</h2>
       </header>
       <div class="auth-card-body">
-        <app-custom-input-field
-          [label]="'Email Address'"
-          [placeholder]="'Enter your email address'"
-          [control]="loginForm.get('email')"
-        />
+        <form [formGroup]="loginForm" (submit)="login($event)">
+          <app-custom-input-field
+            [label]="'Email Address'"
+            [placeholder]="'Enter your email address'"
+            [control]="loginForm.get('email')"
+          />
+          <img
+            src="assets/images/doctor/email.svg"
+            alt="email icon"
+            class="icon-email"
+          />
+          @if(getEmailErrors()){
+          <div class="validation-error-message">
+            {{ getEmailErrors() }}
+          </div>
+          }
+          <app-custom-input-field
+            [label]="'Password'"
+            [type]="'password'"
+            [placeholder]="'Enter your password'"
+            [control]="loginForm.get('password')"
+            [showPassword]="false"
+          />
+          <img
+            src="assets/images/doctor/password.svg"
+            alt="password-icon"
+            class="icon-password"
+          />
+          @if(getPasswordErrors()){
+          <div class="password-validation-error">
+            {{ getPasswordErrors() }}
+          </div>
+          }
+          <div class="remember-me">
+            <label id="remember">
+              <input type="checkbox" name="rememberMe" />
+              Remember me
+            </label>
+            <p routerLink="/forgot-password">Forgot Your Password?</p>
+          </div>
+          <button type="submit" [disabled]="responseSignal().pending">
+            <span class="login">Login</span>
+            <span class="loader"></span>
+          </button>
+        </form>
+        <p class="no-account">
+          Don't have an account?
+          <span [routerLink]="['/signup']">Sign Up</span>
+        </p>
       </div>
-      <img
-        src="assets/images/doctor/email.svg"
-        alt="email icon"
-        class="icon-email"
-      />
-      @if(getEmailErrors()){
-      <div class="validation-error-message">
-        {{ getEmailErrors() }}
-      </div>
-      }
-      <app-custom-input-field
-        [label]="'Password'"
-        [type]="'password'"
-        [placeholder]="'Enter your password'"
-        [control]="loginForm.get('password')"
-        [showPassword]="false"
-      />
-      <img
-        src="assets/images/doctor/password.svg"
-        alt="password-icon"
-        class="icon-password"
-      />
-      @if(getPasswordErrors()){
-      <div class="password-validation-error">
-        {{ getPasswordErrors() }}
-      </div>
-      }
     </div>
-    <div class="remember-me">
-      <label id="remember">
-        <input type="checkbox" name="rememberMe" />
-        Remember me
-      </label>
-      <p routerLink="/forgot-password">Forgot Your Password?</p>
-    </div>
-    <button>Login</button>
-
-    <p class="no-account">
-      Don't have an account?
-      <span [routerLink]="['/signup']">Sign Up</span>
-    </p>
   </section>
 </main>

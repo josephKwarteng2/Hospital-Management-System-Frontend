@@ -1,3 +1,3 @@
-// export const environment = {
-//   baseUrl: 'https://prompt-filly-surely.ngrok-free.app/api/v1',
-// };
+export const environment = {
+  baseUrl: 'https://prompt-filly-surely.ngrok-free.app/api/v1',
+};

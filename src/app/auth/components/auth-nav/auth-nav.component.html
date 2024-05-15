@@ -1,4 +1,9 @@
-<nav class="navbar">
+<div class="overlay" *ngIf="showNavLink"></div>
+<div class="hamburger-icon" (click)="toggleNavLink()">
+  <img src="assets/images/admin/list.svg" alt="Menu" />
+</div>
+
+<nav class="navbar" [ngClass]="{ show: showNavLink }">
   <div class="logo-item">
     <img src="assets/images/patients/logo.svg" alt="App Logo" />
   </div>

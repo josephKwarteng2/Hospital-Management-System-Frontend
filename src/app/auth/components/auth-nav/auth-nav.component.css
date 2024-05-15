@@ -171,3 +171,54 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+    border-bottom: 1px solid #d0d5dd;
+    box-shadow: 0 0 2px var(--grey-color-light);
+  }
+
+  .show {
+    left: 0;
+  }
+
+  .hamburger-icon {
+    position: fixed;
+    top: 36px;
+    left: 20px;
+    z-index: 9999;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background: rgba(203, 212, 225, 0.4);
+    backdrop-filter: blur(8px);
+  }
+
+  .show + .overlay {
+    display: block;
+  }
+
+  .hamburger-icon {
+    display: block;
+    margin-top: -5%;
+  }
+}

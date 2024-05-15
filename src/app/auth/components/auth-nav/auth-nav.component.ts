@@ -9,4 +9,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './auth-nav.component.html',
   styleUrl: './auth-nav.component.css',
 })
-export class AuthNavComponent {}
+export class AuthNavComponent {
+  public showNavLink = false;
+
+  toggleNavLink() {
+    this.showNavLink = !this.showNavLink;
+  }
+}

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AuthNavComponent } from '../../components/auth-nav/auth-nav.component';
 import { BackgroundIllustrationComponent } from '../../components/background-illustration/background-illustration.component';
 import { CustomInputFieldComponent } from '../../../components/custom-input-field/custom-input-field.component';
@@ -10,7 +10,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { getControlErrors } from '../../../shared/utils/constants';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { InitialSig } from '../../../shared/models/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -27,14 +29,20 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./login.component.css', '../../styles/styles.css'],
 })
 export class LoginComponent {
+  public responseSignal = signal<InitialSig>({
+    success: null,
+    error: null,
+    pending: false,
+  });
+  router: Router = inject(Router);
+  doctorLoginService: AuthService = inject(AuthService);
+  public errorMessage = '';
+  public successMessage = '';
+  public loading = false;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
-
-  onSubmit() {
-    console.log(this.loginForm.value);
-  }
 
   public getEmailErrors(): string {
     return getControlErrors(
@@ -55,5 +63,38 @@ export class LoginComponent {
       },
       this.loginForm
     );
+  }
+
+  public login(event: Event) {
+    this.loading = true;
+    this.responseSignal.set({
+      success: null,
+      error: null,
+      pending: true,
+    });
+    event.preventDefault();
+    this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
+      next: (response) => {
+        this.successMessage = response.message;
+        this.errorMessage = '';
+        this.responseSignal.set({
+          success: response,
+          error: null,
+          pending: false,
+        });
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 2000);
+      },
+      error: (error) => {
+        this.errorMessage = error.error.message;
+        this.successMessage = '';
+        this.responseSignal.set({
+          success: null,
+          error: { message: error.error.message },
+          pending: false,
+        });
+      },
+    });
   }
 }

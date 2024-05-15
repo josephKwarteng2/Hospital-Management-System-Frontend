@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { DoctorService } from '../../../shared/services/doctor.service';
-
+import { Component, OnInit, inject } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormControl,
@@ -11,7 +9,9 @@ import {
 import { AuthNavComponent } from '../../components/auth-nav/auth-nav.component';
 import { BackgroundIllustrationComponent } from '../../components/background-illustration/background-illustration.component';
 import { CustomInputFieldComponent } from '../../../components/custom-input-field/custom-input-field.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { CurrentUserService } from '../../services/current-user.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,19 +27,35 @@ import { RouterLink } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css', '../../styles/styles.css'],
 })
-export class SignupComponent {
-  private doctorRegistrationService: DoctorService = inject(DoctorService);
+export class SignupComponent implements OnInit {
+  private doctorRegistrationService: AuthService = inject(AuthService);
+  private currentUserService: CurrentUserService = inject(CurrentUserService);
+  private router: Router = inject(Router);
 
+  public errorMessage = '';
+  public successMessage = '';
   signupForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.email]),
-    email: new FormControl('', [Validators.required]),
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
-  // public registerDoctor(event: Event) {
-  //   event.preventDefault();
-  //   this.doctorRegistrationService.doctorRegistration().subscribe({
-  //     next: (response) => {},
-  //   });
-  // }
+  ngOnInit(): void {}
+
+  public registerDoctor(event: Event) {
+    event.preventDefault();
+    this.doctorRegistrationService
+      .doctorRegistration(this.signupForm.value)
+      .subscribe({
+        next: (response) => {
+          this.successMessage = response.message;
+          this.currentUserService.setCurrentUser(response);
+          this.router.navigate(['/doctor/dashboard']);
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+        },
+      });
+  }
 }
