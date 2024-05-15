@@ -25,18 +25,6 @@ th {
   font-size: 14px;
 }
 
-/* .active {
-  color: var(--status-success);
-  background-color: #ecfdf3;
-  border-radius: 16px;
-}
-
-.inactive {
-  color: var(--status-error);
-  background-color: #fef3f2;
-  border-radius: 16px;
-} */
-
 @media (max-width: 414px) {
   th,
   td {
