@@ -39,7 +39,7 @@ main {
 .message {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 20%;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;

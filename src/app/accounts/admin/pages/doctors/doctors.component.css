@@ -137,6 +137,11 @@ amalitech-select {
   --select-dropdown-height: 10rem;
   --select-dropdown-border-color: #d0d5dd;
   --select-dropdown-border-width: 1px;
+  --select-font-family: "MontserratRegular";
+}
+
+amalitech-select-option {
+  font-family: "MontserratRegular";
 }
 
 @media (max-width: 414px) {

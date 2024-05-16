@@ -3,90 +3,9 @@
     <app-auth-nav></app-auth-nav>
     <app-background-illustration></app-background-illustration>
   </div>
-
-  <!-- <div class="message success-message">
-    @if (successMessage) {
-    {{ successMessage }}
-    }
-  </div>
-  <div class="message error-message">
-    @if (errorMessage) {
-    {{ errorMessage }}
-    }
-  </div> -->
-  <div class="message success-message" *ngIf="successMessage">
-    {{ successMessage }}
-  </div>
-  <div class="message error-message" *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
-  <section class="auth-card">
-    <div class="auth-card-content">
-      <header class="auth-card-header">
-        <h2>Create your account</h2>
-      </header>
-      <form [formGroup]="signupForm" (submit)="registerDoctor($event)">
-        <div class="auth-card-body">
-          <app-custom-input-field
-            [label]="'First Name'"
-            [id]="'name'"
-            [type]="'text'"
-            [placeholder]="'Enter your first name'"
-            [control]="signupForm.get('firstname')"
-          />
-          <img
-            src="assets/images/doctor/user.svg"
-            alt="name icon"
-            class="icon-user"
-          />
-          <app-custom-input-field
-            [label]="'Last Name'"
-            [id]="'name'"
-            [type]="'text'"
-            [placeholder]="'Enter your last name'"
-            [control]="signupForm.get('lastname')"
-          />
-          <img
-            src="assets/images/doctor/user.svg"
-            alt="name icon"
-            class="icon-user"
-          />
-          <app-custom-input-field
-            [label]="'Email Address'"
-            [id]="'email'"
-            [type]="'email'"
-            [placeholder]="'Enter your email address'"
-            [control]="signupForm.get('email')"
-          />
-          <img
-            src="assets/images/doctor/email.svg"
-            alt="email icon"
-            class="icon-email"
-          />
-          <app-custom-input-field
-            [label]="'Password'"
-            [id]="'password'"
-            [type]="'password'"
-            [placeholder]="'Enter your password'"
-            [control]="signupForm.get('password')"
-            [showPassword]="false"
-          />
-          <img
-            src="assets/images/doctor/password.svg"
-            alt="password icon"
-            class="icon-password"
-          />
-        </div>
-        <button>Sign Up</button>
-      </form>
-
-      <p class="terms-and-conditions">
-        By creating an account, you agree to our
-        <span>terms of service and privacy policy</span>
-      </p>
-      <p class="has-account">
-        Already have an account? <span [routerLink]="['/login']">Log in</span>
-      </p>
-    </div>
-  </section>
+  @if (formField === 'signupForm') {
+  <app-signup-form></app-signup-form>
+  } @else if (formField === 'otpForm') {
+  <app-otp></app-otp> <app-otp></app-otp>
+  }
 </main>

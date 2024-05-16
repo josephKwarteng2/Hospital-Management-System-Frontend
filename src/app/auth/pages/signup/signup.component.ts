@@ -1,61 +1,51 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  ReactiveFormsModule,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { AuthNavComponent } from '../../components/auth-nav/auth-nav.component';
+import { OtpComponent } from '../../components/otp/otp.component';
+import { SignupFormComponent } from '../../components/signup-form/signup-form.component';
+import { SignUpProgress } from 'src/app/shared/models/interfaces';
+import { Subscription } from 'rxjs';
+import { SignupService } from '../../services/signup.service';
 import { BackgroundIllustrationComponent } from '../../components/background-illustration/background-illustration.component';
-import { CustomInputFieldComponent } from '../../../components/custom-input-field/custom-input-field.component';
-import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { CurrentUserService } from '../../services/current-user.service';
-
+import { AuthNavComponent } from '../../components/auth-nav/auth-nav.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    AuthNavComponent,
+    OtpComponent,
+    SignupFormComponent,
     BackgroundIllustrationComponent,
-    CustomInputFieldComponent,
-    RouterLink,
+    AuthNavComponent,
+    OtpComponent,
   ],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css', '../../styles/styles.css'],
 })
 export class SignupComponent implements OnInit {
-  private doctorRegistrationService: AuthService = inject(AuthService);
-  private currentUserService: CurrentUserService = inject(CurrentUserService);
-  private router: Router = inject(Router);
+  public formField: SignUpProgress = 'signupForm';
+  subscriptions: Subscription[] = [];
+  router: Router = inject(Router);
+  public signupProgress: SignupService = inject(SignupService);
 
-  public errorMessage = '';
-  public successMessage = '';
-  signupForm: FormGroup = new FormGroup({
-    firstname: new FormControl('', [Validators.required]),
-    lastname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-  });
+  ngOnInit(): void {
+    this.subscribeToProgressChanges();
+  }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
 
-  public registerDoctor(event: Event) {
-    event.preventDefault();
-    this.doctorRegistrationService
-      .doctorRegistration(this.signupForm.value)
-      .subscribe({
-        next: (response) => {
-          this.successMessage = response.message;
-          this.currentUserService.setCurrentUser(response);
+  private subscribeToProgressChanges() {
+    const toggSubscription = this.signupProgress.data.subscribe({
+      next: (data) => {
+        this.formField = data;
+        if (data === 'success') {
           this.router.navigate(['/doctor/dashboard']);
-        },
-        error: (err) => {
-          this.errorMessage = err.error.message;
-        },
-      });
+        }
+      },
+    });
+
+    this.subscriptions.push(toggSubscription);
   }
 }

@@ -3,6 +3,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { SignupComponent } from './auth/pages/signup/signup.component';
 import { ForgotPasswordComponent } from './auth/pages/forgot-password/forgot-password.component';
 import { AccountsRoute } from './accounts/accounts.routes';
+import { OtpComponent } from './auth/components/otp/otp.component';
 export const routes: Routes = [
   {
     path: '',
@@ -21,5 +22,6 @@ export const routes: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent,
   },
+
   ...AccountsRoute,
 ];
