@@ -71,7 +71,10 @@
           class="icon-password"
         />
       </div>
-      <button>Sign Up</button>
+      <button type="submit" [disabled]="responseSignal().pending">
+        <span class="signup">Sign Up</span>
+        <span class="loader"></span>
+      </button>
     </form>
 
     <p class="terms-and-conditions">

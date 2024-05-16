@@ -1,0 +1,16 @@
+.resend-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+button[disabled] .loader,
+.form-submitted .loader {
+  display: block;
+}
+
+button[disabled] .verify,
+.form-submitted .verify {
+  visibility: hidden;
+}

@@ -78,6 +78,39 @@ button:hover {
   background: #16c798;
 }
 
+button {
+  position: relative;
+}
+
+button:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  background: #a3cfc5;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #ffffff;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 @media only screen and (max-height: 700px) {
   main {
     display: flex;

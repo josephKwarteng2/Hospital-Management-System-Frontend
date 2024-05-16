@@ -17,7 +17,7 @@ export type FAQ = {
   answer: string;
 };
 
-export type InputFields = 'email' | 'otp' | 'changePassword';
+// export type InputFields = 'email' | 'otp' | 'changePassword';
 
 export type SignUpProgress = 'signupForm' | 'otpForm' | 'success';
 

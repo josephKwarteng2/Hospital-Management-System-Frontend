@@ -25,4 +25,11 @@ export class AuthService {
   doctorLogin(user: User): Observable<User> {
     return this.http.post<User>(`${environment.baseUrl}/auth/login`, user);
   }
+
+  veriftyOtp(otp: string): Observable<User> {
+    return this.http.post<User>(
+      `${environment.baseUrl}/auth/verify?code=${otp}`,
+      { otp }
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export type InputFields = 'email' | 'otp' | 'changePassword';
+// export type InputFields = 'email' | 'otp' | 'changePassword';
 
 @Injectable({
   providedIn: 'root',

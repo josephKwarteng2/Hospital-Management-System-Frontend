@@ -1,5 +1,7 @@
 import { FormGroup } from '@angular/forms';
 
+export const MESSAGE_CLEAR_DELAY_MS = 4000;
+
 export function getControlErrors(
   controlName: string,
   errorMessages: { [key: string]: string },

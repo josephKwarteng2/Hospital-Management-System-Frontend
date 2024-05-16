@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     OtpComponent,
+    SignupComponent,
     SignupFormComponent,
     BackgroundIllustrationComponent,
     AuthNavComponent,

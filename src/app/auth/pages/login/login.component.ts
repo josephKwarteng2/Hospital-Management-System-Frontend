@@ -13,6 +13,8 @@ import { getControlErrors } from '../../../shared/utils/constants';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { InitialSig } from '../../../shared/models/interfaces';
+import { MESSAGE_CLEAR_DELAY_MS } from '../../../shared/utils/constants';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -77,9 +79,10 @@ export class LoginComponent {
     this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
       next: (response) => {
         this.successMessage = response.message;
+        delay(2000);
         this.errorMessage = '';
         this.responseSignal.set({
-          success: response,
+          success: { message: response.message },
           error: null,
           pending: false,
         });

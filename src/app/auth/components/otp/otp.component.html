@@ -1,14 +1,32 @@
+<div class="message success-message" *ngIf="successMessage">
+  {{ successMessage }}
+</div>
+<div class="message error-message" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
 <section class="auth-card">
   <div class="auth-card-content">
     <header class="auth-card-header">
       <h2>Verify your email</h2>
     </header>
     <div class="auth-card-body">
-      <form>
+      <form [formGroup]="otpForm" (submit)="verifyOtp()">
         <app-custom-input-field
-          [label]="'Verify Email'"
+          [label]="'Verification Code'"
           [placeholder]="'Enter verification code'"
+          [control]="otpForm.get('otp')"
         />
+
+        <div class="resend-btn">
+          <p>Resend code</p>
+        </div>
+        <div>
+          <button type="submit">
+            <span class="verify">Verify Email</span>
+            <span class="loader"></span>
+          </button>
+        </div>
       </form>
     </div>
   </div>
