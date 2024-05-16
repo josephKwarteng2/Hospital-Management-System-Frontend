@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from '@components/nav-bar/nav-bar.component';
 import { SearchComponent } from '@components/search/search.component';
@@ -16,6 +16,7 @@ import { FAQ } from 'src/app/shared/models/interfaces';
     SearchComponent,
     RouterLink,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './faqs.component.html',
   styleUrl: './faqs.component.css',
 })
@@ -48,5 +49,9 @@ export class FaqsComponent {
 
   openAddFaqPage() {
     this.router.navigate(['/admin/add-faqs']);
+  }
+
+  public onChange(event: any) {
+    console.log(event);
   }
 }

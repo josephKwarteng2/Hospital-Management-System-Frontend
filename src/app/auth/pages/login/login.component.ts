@@ -67,12 +67,13 @@ export class LoginComponent {
 
   public login(event: Event) {
     this.loading = true;
+    event.preventDefault();
+
     this.responseSignal.set({
       success: null,
       error: null,
       pending: true,
     });
-    event.preventDefault();
     this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
       next: (response) => {
         this.successMessage = response.message;
@@ -82,9 +83,7 @@ export class LoginComponent {
           error: null,
           pending: false,
         });
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 2000);
+        this.router.navigate(['/doctor/dashboard']);
       },
       error: (error) => {
         this.errorMessage = error.error.message;

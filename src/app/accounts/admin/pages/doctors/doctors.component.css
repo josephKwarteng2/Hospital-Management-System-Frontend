@@ -121,6 +121,24 @@ section {
   }
 }
 
+amalitech-select {
+  --select-width: 174px;
+  --select-label-bg: #fff;
+  --select-label-padding: 0.5rem 0.75rem;
+  --select-label-font-size: 0.875rem;
+  --select-label-weight: 500;
+  --select-label-border-width: 1px;
+  --select-label-border-color: none;
+  --select-label-gap: 1rem;
+  --select-label-radius: 0.35rem;
+  --select-dropdown-bg: #fff;
+  --select-dropdown-padding: 0.35rem;
+  --select-dropdown-radius: 0.35rem;
+  --select-dropdown-height: 10rem;
+  --select-dropdown-border-color: #d0d5dd;
+  --select-dropdown-border-width: 1px;
+}
+
 @media (max-width: 414px) {
   section .actions-button {
     flex-direction: column;

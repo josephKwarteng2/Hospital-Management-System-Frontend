@@ -31,9 +31,9 @@ body {
   padding: 0;
 }
 
-*,
-*::before,
-*::after {
+*:not(amalitech-select-option),
+*:not(amalitech-select-option):before,
+*:not(amalitech-select-option)::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;

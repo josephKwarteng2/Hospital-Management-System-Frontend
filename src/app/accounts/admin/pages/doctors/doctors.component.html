@@ -21,18 +21,25 @@
   </section>
   @if (showFilters) {
   <div class="filter-card">
-    <div class="specialization-filter">
-      <p>Specialization</p>
-      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
-    </div>
-    <div class="specialization-filter">
-      <p>Rank</p>
-      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
-    </div>
-    <div class="specialization-filter">
-      <p>Status</p>
-      <img src="assets/images/doctor/caret-down.svg" alt="arrow down" />
-    </div>
+    <amalitech-select
+      (amalitechChange)="onChange($event)"
+      label="Specialization"
+    >
+      <amalitech-select-option value="1">Dermatologist</amalitech-select-option>
+      <amalitech-select-option value="2">Cardiologist</amalitech-select-option>
+      <amalitech-select-option value="3">Orthopedist</amalitech-select-option>
+      <amalitech-select-option value="4">Neurologist</amalitech-select-option>
+    </amalitech-select>
+
+    <amalitech-select (amalitechChange)="onChange($event)" label="Rank">
+      <amalitech-select-option value="1">Junior</amalitech-select-option>
+      <amalitech-select-option value="2">Senior</amalitech-select-option>
+    </amalitech-select>
+
+    <amalitech-select (amalitechChange)="onChange($event)" label="Status">
+      <amalitech-select-option value="1">Active</amalitech-select-option>
+      <amalitech-select-option value="2">Inactive</amalitech-select-option>
+    </amalitech-select>
     <div class="filter-reset-btn">
       <img src="assets/images/admin/x-close.svg" alt="Icon Clear" />
       <p>Clear all</p>

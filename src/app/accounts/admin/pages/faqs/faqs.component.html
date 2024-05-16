@@ -7,14 +7,14 @@
   <div class="top-section">
     <app-search />
     <div class="btn-wrapper">
-      <div class="btn-filter">
-        Published
-        <img src="assets/images/doctor/caret-down.svg" alt="Fliter Icon" />
-      </div>
-      <div class="faqs-btn" (click)="openAddFaqPage()">
-        <img src="assets/images/doctor/add.svg" alt="Icon plus" />
-        Add New FAQ
-      </div>
+      <amalitech-select (amalitechChange)="onChange($event)" label="Filter">
+        <amalitech-select-option value="1">Published</amalitech-select-option>
+        <amalitech-select-option value="2">Draft</amalitech-select-option>
+      </amalitech-select>
+
+      <amalitech-button (click)="openAddFaqPage()"
+        >Add New FAQ<img src="assets/images/doctor/add.svg" alt="Icon plus" />
+      </amalitech-button>
     </div>
   </div>
 

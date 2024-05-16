@@ -5,22 +5,36 @@ main {
   }
 }
 
-.btn-filter {
+.btn-wrapper {
   display: flex;
-  justify-content: center;
-  text-align: center;
   align-items: center;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 1px solid #d0d5dd;
-  background: var(--bg-color);
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  gap: 10px;
-  cursor: pointer;
 }
 
-.btn-filter:hover {
-  background: #d0d5dd;
+amalitech-select {
+  --select-width: 174px;
+  --select-label-bg: #fff;
+  --select-label-padding: 10px 20px;
+  --select-label-font-size: 0.875rem;
+  --select-label-weight: 500;
+  --select-label-border-width: 1px;
+  --select-label-border-color: #d0d5dd;
+  --select-label-gap: 1rem;
+  --select-label-radius: 0.35rem;
+  --select-dropdown-bg: #fff;
+  --select-dropdown-padding: 0.35rem;
+  --select-dropdown-radius: 0.35rem;
+  --select-dropdown-height: 10rem;
+  --select-dropdown-border-color: #d0d5dd;
+  --select-dropdown-border-width: 1px;
+}
+
+amalitech-button {
+  --amalitech-button-color: #fff;
+  --amalitech-button-bg: var(--primary-color);
+  --amalitech-button-font-size: 1rem;
+  --amalitech-button-radius: 8.058px;
+  --amalitech-button-ptb: 8px;
+  --amalitech-button-plr: 16px;
 }
 
 .faqs-btn {
