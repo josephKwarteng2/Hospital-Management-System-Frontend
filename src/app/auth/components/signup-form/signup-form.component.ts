@@ -84,19 +84,12 @@ export class SignupFormComponent implements OnInit {
   }
 
   private handleSignupError(err: any) {
-    this.clearErrorMessageAfterDelay();
     this.toastService.toast({ message: err.error.message, status: 'error' });
     this.responseSignal.set({
       success: null,
       error: { message: err.error.message },
       pending: false,
     });
-  }
-
-  private clearErrorMessageAfterDelay() {
-    setTimeout(() => {
-      this.errorMessage = '';
-    }, 4000);
   }
 
   private nextFormFieldAfterDelay(
