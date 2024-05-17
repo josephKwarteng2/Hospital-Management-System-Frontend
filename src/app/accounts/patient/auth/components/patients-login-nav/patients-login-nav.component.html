@@ -8,14 +8,11 @@
     <img src="assets/images/patients/logo.svg" alt="App Logo" />
   </div>
   <div class="navbar-content">
-    <p [routerLink]="['/home']">Home</p>
-    <p [routerLink]="['/services']">Services</p>
-    <p [routerLink]="['/pricing']">Pricing</p>
-    <p [routerLink]="['/Contact-us']">Contact Us</p>
-    <p [routerLink]="['/about-us']">About Us</p>
     <span>Are you a Doctor?</span>
   </div>
-  <div class="btns-wrapper" [routerLink]="['/patient/login']">
-    <button class="btn-primary" [routerLink]="['/patient/login']">Login</button>
+  <div class="btns-wrapper" [routerLink]="['/patient/register']">
+    <button class="btn-primary" [routerLink]="['/patient/register']">
+      Register
+    </button>
   </div>
 </nav>

@@ -1,8 +1,17 @@
+p {
+  font-size: 14px;
+  color: var(--font-color-grey-2);
+  margin-top: 5%;
+}
+
 .resend-btn {
   display: flex;
   justify-content: flex-end;
   margin-top: 7px;
   cursor: pointer;
+  font-size: 14px;
+  margin-top: 14px;
+  color: #277bcd;
 }
 
 button[disabled] .loader,

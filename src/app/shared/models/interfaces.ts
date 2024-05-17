@@ -17,7 +17,7 @@ export type FAQ = {
   answer: string;
 };
 
-// export type InputFields = 'email' | 'otp' | 'changePassword';
+export type InputFields = 'email' | 'otp' | 'changePassword';
 
 export type SignUpProgress = 'signupForm' | 'otpForm' | 'success';
 
@@ -26,3 +26,23 @@ export type InitialSig = {
   error: { message: string } | null;
   pending: boolean;
 };
+
+export class Signal<T> {
+  private _data: T;
+  set: (data: T) => void;
+
+  constructor(initialData: T) {
+    this._data = initialData;
+    this.set = (newData: T) => {
+      this._data = newData;
+    };
+  }
+
+  get data(): T {
+    return this._data;
+  }
+}
+
+export function signal<T>(initialData: T): Signal<T> {
+  return new Signal(initialData);
+}

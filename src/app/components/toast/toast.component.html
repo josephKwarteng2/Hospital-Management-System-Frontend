@@ -1,0 +1,47 @@
+<span
+  (mouseover)="pauseAutoclose()"
+  (mouseout)="autoclose()"
+  [class]="{
+        opening: opening,
+        closed: closed,
+    }"
+  [style.borderColor]="
+    config()?.status === 'success'
+      ? '#12B76A'
+      : config()?.status === 'error'
+      ? '#f04438'
+      : '#fec84b'
+  "
+>
+  @switch (config()?.status) { @case ('success') {
+  <img src="assets/images/doctor/success-check.svg" width="24" height="24" />
+  } @case ('error') {
+  <img src="assets/images/doctor/x-mark.svg" width="24" height="24" />
+  } @case ('warning') {
+  <img src="assets/images/doctor/quill-warn.svg" width="24" height="24" />
+  } }
+  <p class="{{ config()?.status }}">{{ config()?.message }}</p>
+  <svg
+    class="cursor-pointer"
+    (click)="close()"
+    xmlns="http://www.w3.org/2000/svg"
+    width="21"
+    height="20"
+    viewBox="0 0 21 20"
+    fill="none"
+  >
+    <path
+      d="M15.5 5L5.5 15M5.5 5L15.5 15"
+      [attr.stroke]="
+        config()?.status === 'success'
+          ? '#12B76A'
+          : config()?.status === 'error'
+          ? '#f04438'
+          : '#fec84b'
+      "
+      stroke-width="1.66667"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</span>

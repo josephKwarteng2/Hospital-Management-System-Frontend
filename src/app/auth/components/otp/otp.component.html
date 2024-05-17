@@ -9,6 +9,7 @@
   <div class="auth-card-content">
     <header class="auth-card-header">
       <h2>Verify your email</h2>
+      <p>We've sent an email with a verification code to {{ email }}</p>
     </header>
     <div class="auth-card-body">
       <form [formGroup]="otpForm" (submit)="verifyOtp()">

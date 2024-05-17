@@ -13,8 +13,8 @@ import { getControlErrors } from '../../../shared/utils/constants';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { InitialSig } from '../../../shared/models/interfaces';
-import { MESSAGE_CLEAR_DELAY_MS } from '../../../shared/utils/constants';
-import { delay } from 'rxjs';
+import { SelectValueAccessorDirective } from 'src/app/shared/directives/select-value-accessor.directive';
+import { ToastService } from '@components/toast/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +26,7 @@ import { delay } from 'rxjs';
     CustomInputFieldComponent,
     ReactiveFormsModule,
     RouterLink,
+    SelectValueAccessorDirective,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css', '../../styles/styles.css'],
@@ -40,7 +41,6 @@ export class LoginComponent {
   doctorLoginService: AuthService = inject(AuthService);
   public errorMessage = '';
   public successMessage = '';
-  public loading = false;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -68,35 +68,53 @@ export class LoginComponent {
   }
 
   public login(event: Event) {
-    this.loading = true;
-    event.preventDefault();
-
-    this.responseSignal.set({
-      success: null,
-      error: null,
-      pending: true,
-    });
-    this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
-      next: (response) => {
-        this.successMessage = response.message;
-        delay(2000);
-        this.errorMessage = '';
-        this.responseSignal.set({
-          success: { message: response.message },
-          error: null,
-          pending: false,
-        });
-        this.router.navigate(['/doctor/dashboard']);
-      },
-      error: (error) => {
-        this.errorMessage = error.error.message;
-        this.successMessage = '';
-        this.responseSignal.set({
-          success: null,
-          error: { message: error.error.message },
-          pending: false,
-        });
-      },
-    });
+    // event.preventDefault();
+    // this.responseSignal.set({ success: null, error: null, pending: true });
+    // this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
+    //   next: (response) => this.handleLoginSuccess(response),
+    //   error: (err) => this.handleLoginError(err),
+    // });
   }
+
+  // public login(event: Event) {
+  //   event.preventDefault();
+
+  //   this.responseSignal.set({
+  //     success: null,
+  //     error: null,
+  //     pending: true,
+  //   });
+  //   this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
+  //     next: (response) => {
+  //       this.successMessage = response.message;
+  //       this.errorMessage = '';
+  //       this.responseSignal.set({
+  //         success: { message: response.message },
+  //         error: null,
+  //         pending: false,
+  //       });
+  //       setTimeout(() => {
+  //         this.router.navigate(['/doctor/dashboard']);
+  //       }, 3000);
+  //     },
+  //     error: (error) => {
+  //       this.errorMessage = error.error.message;
+  //       this.successMessage = '';
+  //       this.responseSignal.set({
+  //         success: null,
+  //         error: { message: error.error.message },
+  //         pending: false,
+  //       });
+  //     },
+  //   });
+  // }
+
+  // private handleLoginSuccess(response: User) {
+  //   this.successMessage = response.message;
+  //   this.errorMessage = '';
+  //   this.setResponseSignal(false, { message: response.message }, null);
+  //   setTimeout(() => this.router.navigate(['/doctor/dashboard']), 3000);
+  // }
+
+  handleLoginError() {}
 }

@@ -1,0 +1,9 @@
+main {
+  min-height: 100vh;
+  padding: 10vh 140px 10px calc(4% + 40px);
+}
+
+.hero-content {
+  display: flex;
+  background: red;
+}

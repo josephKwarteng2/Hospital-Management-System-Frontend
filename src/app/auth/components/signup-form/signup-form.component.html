@@ -1,19 +1,4 @@
-<!-- <div class="message success-message">
-      @if (successMessage) {
-      {{ successMessage }}
-      }
-    </div>
-    <div class="message error-message">
-      @if (errorMessage) {
-      {{ errorMessage }}
-      }
-    </div> -->
-<div class="message success-message" *ngIf="successMessage">
-  {{ successMessage }}
-</div>
-<div class="message error-message" *ngIf="errorMessage">
-  {{ errorMessage }}
-</div>
+<app-toast></app-toast>
 <section class="auth-card">
   <div class="auth-card-content">
     <header class="auth-card-header">
