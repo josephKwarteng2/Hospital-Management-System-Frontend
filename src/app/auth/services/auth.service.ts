@@ -32,4 +32,10 @@ export class AuthService {
       { otp }
     );
   }
+
+  resendOtp(email: string): Observable<User> {
+    return this.http.post<User>(`${environment.baseUrl}/auth/resend-code`, {
+      email,
+    });
+  }
 }

@@ -12,6 +12,7 @@ p {
   font-size: 14px;
   margin-top: 14px;
   color: #277bcd;
+  margin-top: 6%;
 }
 
 button[disabled] .loader,

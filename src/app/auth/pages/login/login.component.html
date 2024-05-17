@@ -3,12 +3,7 @@
     <app-auth-nav></app-auth-nav>
     <app-background-illustration></app-background-illustration>
   </div>
-  <div class="message success-message" *ngIf="successMessage">
-    {{ successMessage }}
-  </div>
-  <div class="message error-message" *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
+  <app-toast />
   <section class="auth-card">
     <div class="auth-card-content">
       <header class="auth-card-header">

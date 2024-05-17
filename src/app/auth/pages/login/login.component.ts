@@ -12,10 +12,11 @@ import {
 import { getControlErrors } from '../../../shared/utils/constants';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { InitialSig } from '../../../shared/models/interfaces';
+import { InitialSig, User } from '../../../shared/models/interfaces';
 import { SelectValueAccessorDirective } from 'src/app/shared/directives/select-value-accessor.directive';
 import { ToastService } from '@components/toast/toast.service';
-
+import { CurrentUserService } from '../../services/current-user.service';
+import { ToastComponent } from '@components/toast/toast.component';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -27,6 +28,7 @@ import { ToastService } from '@components/toast/toast.service';
     ReactiveFormsModule,
     RouterLink,
     SelectValueAccessorDirective,
+    ToastComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css', '../../styles/styles.css'],
@@ -39,6 +41,9 @@ export class LoginComponent {
   });
   router: Router = inject(Router);
   doctorLoginService: AuthService = inject(AuthService);
+  private currentUserService: CurrentUserService = inject(CurrentUserService);
+  private toastService: ToastService = inject(ToastService);
+
   public errorMessage = '';
   public successMessage = '';
   loginForm: FormGroup = new FormGroup({
@@ -68,53 +73,32 @@ export class LoginComponent {
   }
 
   public login(event: Event) {
-    // event.preventDefault();
-    // this.responseSignal.set({ success: null, error: null, pending: true });
-    // this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
-    //   next: (response) => this.handleLoginSuccess(response),
-    //   error: (err) => this.handleLoginError(err),
-    // });
+    event.preventDefault();
+    this.responseSignal.set({ success: null, error: null, pending: true });
+    this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
+      next: (response) => this.handleLoginSuccess(response),
+
+      error: (err) => this.handleLoginError(err),
+    });
   }
 
-  // public login(event: Event) {
-  //   event.preventDefault();
+  handleLoginSuccess(response: User) {
+    this.currentUserService.setCurrentUser(response);
+    this.toastService.toast({ message: 'Login Successful', status: 'success' });
+    this.responseSignal.set({
+      success: { message: 'Login Successful' },
+      error: null,
+      pending: false,
+    });
+    setTimeout(() => this.router.navigate(['/doctor/dashboard']), 3000);
+  }
 
-  //   this.responseSignal.set({
-  //     success: null,
-  //     error: null,
-  //     pending: true,
-  //   });
-  //   this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
-  //     next: (response) => {
-  //       this.successMessage = response.message;
-  //       this.errorMessage = '';
-  //       this.responseSignal.set({
-  //         success: { message: response.message },
-  //         error: null,
-  //         pending: false,
-  //       });
-  //       setTimeout(() => {
-  //         this.router.navigate(['/doctor/dashboard']);
-  //       }, 3000);
-  //     },
-  //     error: (error) => {
-  //       this.errorMessage = error.error.message;
-  //       this.successMessage = '';
-  //       this.responseSignal.set({
-  //         success: null,
-  //         error: { message: error.error.message },
-  //         pending: false,
-  //       });
-  //     },
-  //   });
-  // }
-
-  // private handleLoginSuccess(response: User) {
-  //   this.successMessage = response.message;
-  //   this.errorMessage = '';
-  //   this.setResponseSignal(false, { message: response.message }, null);
-  //   setTimeout(() => this.router.navigate(['/doctor/dashboard']), 3000);
-  // }
-
-  handleLoginError() {}
+  handleLoginError(err: any) {
+    this.toastService.toast({ message: err.error.message, status: 'error' });
+    this.responseSignal.set({
+      success: null,
+      error: err.error.message,
+      pending: false,
+    });
+  }
 }

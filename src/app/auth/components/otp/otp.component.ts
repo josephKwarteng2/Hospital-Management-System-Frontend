@@ -12,6 +12,8 @@ import {
   SignUpProgress,
   User,
 } from 'src/app/shared/models/interfaces';
+import { ToastService } from '@components/toast/toast.service';
+import { ToastComponent } from '@components/toast/toast.component';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { SignupService } from '../../services/signup.service';
@@ -21,7 +23,12 @@ import { EmailService } from '../../services/email.service';
 @Component({
   selector: 'app-otp',
   standalone: true,
-  imports: [CommonModule, CustomInputFieldComponent, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    CustomInputFieldComponent,
+    ReactiveFormsModule,
+    ToastComponent,
+  ],
   templateUrl: './otp.component.html',
   styleUrls: ['./otp.component.css', '../../styles/styles.css'],
 })
@@ -39,6 +46,7 @@ export class OtpComponent implements OnInit {
   private signupProgress: SignupService = inject(SignupService);
   private currentUserService: CurrentUserService = inject(CurrentUserService);
   private emailService: EmailService = inject(EmailService);
+  private toastService: ToastService = inject(ToastService);
   otpForm: FormGroup = new FormGroup({
     otp: new FormControl('', [Validators.required]),
   });
@@ -47,8 +55,7 @@ export class OtpComponent implements OnInit {
     this.email = this.emailService.getEmail();
   }
 
-  public verifyOtp() {
-    this.clearMessages();
+  public otpVerification() {
     const otp = this.otpForm.get('otp')?.value;
     this.responseSignal.set({ success: null, error: null, pending: true });
     this.authService.veriftyOtp(otp).subscribe({
@@ -62,9 +69,9 @@ export class OtpComponent implements OnInit {
   }
 
   private handleVerificationSuccess(response: User) {
-    this.successMessage = response.message;
     this.currentUserService.setCurrentUser(response);
     this.nextFormFieldAfterDelay('success', 3000);
+    this.toastService.toast({ message: response.message, status: 'success' });
     this.responseSignal.set({
       success: response,
       error: null,
@@ -73,18 +80,13 @@ export class OtpComponent implements OnInit {
   }
 
   private handleVerificationError(err: any) {
-    this.errorMessage = err.error.message;
     this.clearErrorMessageAfterDelay();
+    this.toastService.toast({ message: err.error.message, status: 'error' });
     this.responseSignal.set({
       success: null,
       error: err,
       pending: false,
     });
-  }
-
-  private clearMessages() {
-    this.errorMessage = '';
-    this.successMessage = '';
   }
 
   private clearErrorMessageAfterDelay() {
@@ -100,5 +102,38 @@ export class OtpComponent implements OnInit {
     setTimeout(() => {
       this.signupProgress.toggle(nextFormField);
     }, delay);
+  }
+
+  public resendOtp(email: string) {
+    this.responseSignal.set({ success: null, error: null, pending: true });
+    this.authService.resendOtp(email).subscribe({
+      next: (response) => {
+        this.handleResendSuccess(response);
+      },
+      error: (err) => {
+        this.handleResendError(err);
+      },
+    });
+  }
+
+  private handleResendSuccess(response: User) {
+    this.successMessage = response.message;
+    this.toastService.toast({ message: response.message, status: 'success' });
+    this.responseSignal.set({
+      success: response,
+      error: null,
+      pending: false,
+    });
+  }
+
+  private handleResendError(err: any) {
+    this.errorMessage = err.error.message;
+    this.clearErrorMessageAfterDelay();
+    this.toastService.toast({ message: err.error.message, status: 'error' });
+    this.responseSignal.set({
+      success: null,
+      error: err,
+      pending: false,
+    });
   }
 }

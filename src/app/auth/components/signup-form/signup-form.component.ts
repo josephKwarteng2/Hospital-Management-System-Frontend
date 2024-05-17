@@ -59,7 +59,6 @@ export class SignupFormComponent implements OnInit {
 
   public registerDoctor(event: Event) {
     event.preventDefault();
-    this.clearMessages();
     const formData = this.signupForm.value;
     this.emailService.setEmail(formData.email);
     this.responseSignal.set({ success: null, error: null, pending: true });
@@ -74,7 +73,6 @@ export class SignupFormComponent implements OnInit {
   }
 
   private handleSignupSuccess(response: User) {
-    this.successMessage = response.message;
     this.nextFormFieldAfterDelay('otpForm', 3000);
     this.currentUserService.setCurrentUser(response);
     this.toastService.toast({ message: response.message, status: 'success' });
@@ -86,7 +84,6 @@ export class SignupFormComponent implements OnInit {
   }
 
   private handleSignupError(err: any) {
-    this.errorMessage = err.error.message;
     this.clearErrorMessageAfterDelay();
     this.toastService.toast({ message: err.error.message, status: 'error' });
     this.responseSignal.set({
@@ -94,11 +91,6 @@ export class SignupFormComponent implements OnInit {
       error: { message: err.error.message },
       pending: false,
     });
-  }
-
-  private clearMessages() {
-    this.errorMessage = '';
-    this.successMessage = '';
   }
 
   private clearErrorMessageAfterDelay() {
