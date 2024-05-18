@@ -145,24 +145,59 @@ section {
 
 .signup-for-tips {
   background: var(--primary-color);
+  padding: 96px 0px;
+  .signup-for-tips-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+  }
   .signup-for-tips-content h1 {
+    color: #fff;
+  }
+  .signup-for-tips-content p {
     color: #fff;
   }
 
   .input-container {
-    width: 30%;
+    width: 100%;
     button {
       position: relative;
-      top: -24px;
-      left: 70%;
+      top: -25px;
+      left: 65%;
       background: var(--primary-color);
       padding: 10px 16px;
       border: none;
       color: #fff;
       font-family: "MontserratRegular";
       border-radius: 8.058px;
+      cursor: pointer;
     }
   }
+}
+.section-faqs {
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    padding: 1% 22%;
+    color: #656565;
+  }
+}
+
+.accordion {
+  padding: 5% 10%;
+}
+
+amalitech-accordion {
+  --accordionBackground: #f6f6f8;
+  --accordionLabelPadding: 1rem;
+  --accordionFontSize: 1rem;
+  --accordionFontWeight: #d3d3d3;
+  --openedAccordionPadding: 0.5rem 1rem;
+  --openedAccordionBorder: 0.063rem solid #f6f6f8;
+  --accordionFocusColor: #eb9c7;
+  --accordionFontFamily: "MontserratMedium";
 }
 
 @media (max-width: 414px) {

@@ -21,29 +21,29 @@ export class TrusteesCardComponent {
       profilePicture: 'assets/images/patients/user-profile.png',
       testimonial:
         'Booking appointments at the hospital used to be a hassle, but ever since I started using this platform, its been a breeze! I can easily schedule appointments with my doctor, view my upcoming appointments, and even receive reminders—all from the comfort of my home. Highly recommended!',
-      name: 'Joseph Arthur',
+      name: 'Margorie WItz',
+      position: 'Interior Designer',
+    },
+    {
+      profilePicture: 'assets/images/patients/user-profile.png',
+      testimonial:
+        'Booking appointments at the hospital used to be a hassle, but ever since I started using this platform, its been a breeze! I can easily schedule appointments with my doctor, view my upcoming appointments, and even receive reminders—all from the comfort of my home. Highly recommended!',
+      name: 'Adeline Jade',
       position: 'Business Consultant',
     },
     {
       profilePicture: 'assets/images/patients/user-profile.png',
       testimonial:
         'Booking appointments at the hospital used to be a hassle, but ever since I started using this platform, its been a breeze! I can easily schedule appointments with my doctor, view my upcoming appointments, and even receive reminders—all from the comfort of my home. Highly recommended!',
-      name: 'Joseph Arthur',
-      position: 'Business Consultant',
+      name: 'Joe Buffay ',
+      position: 'Famer Owner',
     },
     {
       profilePicture: 'assets/images/patients/user-profile.png',
       testimonial:
         'Booking appointments at the hospital used to be a hassle, but ever since I started using this platform, its been a breeze! I can easily schedule appointments with my doctor, view my upcoming appointments, and even receive reminders—all from the comfort of my home. Highly recommended!',
       name: 'Joseph Arthur',
-      position: 'Business Consultant',
-    },
-    {
-      profilePicture: 'assets/images/patients/user-profile.png',
-      testimonial:
-        'Booking appointments at the hospital used to be a hassle, but ever since I started using this platform, its been a breeze! I can easily schedule appointments with my doctor, view my upcoming appointments, and even receive reminders—all from the comfort of my home. Highly recommended!',
-      name: 'Joseph Arthur',
-      position: 'Business Consultant',
+      position: 'Realtor',
     },
   ];
 }
