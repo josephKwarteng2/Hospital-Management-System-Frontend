@@ -1,0 +1,20 @@
+<div class="trustees-container">
+  <div class="trustees-card" *ngFor="let trustee of trustees">
+    <div class="trustees-card-content">
+      <div>
+        <img [src]="trustee.profilePicture" alt="trustee image" />
+      </div>
+      <div class="testimonial">
+        <p>{{ trustee.testimonial }}</p>
+        <div class="user-details">
+          <h2>{{ trustee.name }}</h2>
+          <p>{{ trustee.position }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button title="previous"></button>
+  <button title="next"></button>
+</div>

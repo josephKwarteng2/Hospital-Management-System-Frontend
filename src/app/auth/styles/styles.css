@@ -20,6 +20,10 @@ main {
   font-size: 1.5em;
 }
 
+.auth-card-header p {
+  width: 100%;
+}
+
 .icon-email {
   position: relative;
   top: -15px;

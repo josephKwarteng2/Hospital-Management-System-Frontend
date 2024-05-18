@@ -1,0 +1,33 @@
+.trustees-container {
+  display: flex;
+  overflow-y: auto;
+  overflow: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 5% 0;
+}
+
+.trustees-card {
+  display: flex;
+  width: 100%;
+}
+
+.trustees-card-content {
+  padding: 0 6%;
+  display: flex;
+  width: 947px;
+  height: 144px;
+  flex-direction: row;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-details {
+  padding: 2% 0;
+}
+
+.testimonial {
+  margin-left: 20px;
+  border-left: 5px solid var(--font-color-grey);
+  line-height: 30px;
+}

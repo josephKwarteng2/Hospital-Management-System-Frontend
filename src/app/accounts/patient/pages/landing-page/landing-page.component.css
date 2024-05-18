@@ -1,9 +1,156 @@
-main {
-  min-height: 100vh;
-  padding: 10vh 140px 10px calc(4% + 40px);
+section {
+  padding: 10% 0;
+  background: var(--primary-base, #f3fcfa);
+  width: 100%;
+  height: 100vh;
+  .hero-content {
+    display: flex;
+    padding: 0 6%;
+    justify-content: space-between;
+    .hero-text h1 {
+      font-family: "MontserratBold";
+      font-size: 2.9rem;
+      color: var(--font-color-dark);
+      span {
+        color: var(--lightning-yellow);
+      }
+    }
+
+    .hero-text p {
+      font-family: "MontserratRegular";
+      color: #3d3d3d;
+      padding: 5% 0;
+    }
+
+    img {
+      width: 50%;
+      height: 50%;
+      margin-top: -8%;
+    }
+  }
+  .buttons-wrapper {
+    display: flex;
+    padding: 0 6%;
+    gap: 40px;
+    margin-top: -20%;
+
+    .btn-demo {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: none;
+      color: #3c3d3c;
+      padding: 10px 20px;
+      border-radius: 8.058px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid #3c3d3c;
+      font-family: "MontserratRegular";
+      font-size: 14.102px;
+    }
+    .btn-appointment {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--primary-color);
+      color: var(--bg-color);
+      padding: 10px 20px;
+      border-radius: 8.058px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      font-family: "MontserratRegular";
+      font-size: 14.102px;
+    }
+    .btn-demo:hover {
+      background: #3c3d3c;
+      transition: ease-in-out 0.3s;
+      color: #fff;
+    }
+    .btn-demo:hover svg {
+      stroke: #fff;
+    }
+    .btn-appointment:hover {
+      background: #16c798;
+      transition: ease-in-out 0.3s;
+    }
+  }
 }
 
-.hero-content {
+.services {
+  text-align: center;
+  padding: 3% 0;
+  h1 {
+    font-size: 3rem;
+    font-family: "MontserratSemiBold";
+  }
+  p {
+    padding: 5% 0;
+    font-family: "MontserratRegular";
+    color: #3d3d3d;
+    padding: 0 15%;
+  }
+}
+
+.mid-section {
+  background: #f2f4f7;
+  .mid-section-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10% 6%;
+    h2 {
+      font-family: "MontserratSemiBold";
+      font-size: 2.5rem;
+      color: #1d2939;
+    }
+    p {
+      padding: 5% 0;
+      color: #1d2939;
+    }
+  }
+}
+
+.mid-section-content img {
+  margin-top: -10%;
+}
+.mid-bottom {
   display: flex;
-  background: red;
+  justify-content: space-between;
+  .mid-bottom-content {
+    h1 {
+      font-family: "MontserratSemiBold";
+      font-size: 3rem;
+      color: #1d2939;
+    }
+    p {
+      font-family: "MontserratRegular";
+    }
+  }
+}
+
+.section-trustees {
+  padding: 10% 0;
+
+  h1 {
+    text-align: center;
+    font-family: "MontserratBold";
+  }
+  p {
+    text-align: center;
+    padding: 1% 22%;
+  }
+}
+
+@media (max-width: 414px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 3.5rem;
+      color: red;
+    }
+  }
 }
