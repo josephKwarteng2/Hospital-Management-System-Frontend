@@ -38,4 +38,31 @@ export class AuthService {
       email,
     });
   }
+
+  sendEmail(email: string): Observable<User> {
+    return this.http.post<User>(`${environment.baseUrl}/auth/reset-password`, {
+      email,
+    });
+  }
+
+  resetPassword(
+    otp: string,
+    userId: string,
+    email: string,
+    password: string
+    // confirmPassword: string
+  ): Observable<User> {
+    const body = {
+      userId,
+      email,
+      password,
+      // confirmPassword,
+    };
+
+    return this.http.post<User>(
+      `${environment.baseUrl}/auth/reset-password/${otp}${userId}`,
+      { body },
+      { headers: this.headers }
+    );
+  }
 }

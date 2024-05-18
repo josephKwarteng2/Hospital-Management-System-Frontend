@@ -1,26 +1,32 @@
 <section>
-  <app-custom-input-field
-    id="email"
-    type="email"
-    [control]="emailForm.get('email')"
-    [label]="'Email Address'"
-    placeholder="Enter your email"
-    [required]="true"
-  />
-  <div class="icon">
-    <img src="assets/images/doctor/email.svg" class="icon-email" />
-  </div>
-  @if(getEmailErrors()){
-  <div class="validation-error-message">
-    {{ getEmailErrors() }}
-  </div>
-  }
-  <div class="button-wrapper">
-    <button>Send Link</button>
+  <app-toast />
+  <form [formGroup]="emailForm" (submit)="submitEmailForm()">
+    <app-custom-input-field
+      id="email"
+      type="email"
+      [control]="emailForm.get('email')"
+      [label]="'Email Address'"
+      placeholder="Enter your email"
+      [required]="true"
+    />
+    <div class="icon">
+      <img src="assets/images/doctor/email.svg" class="icon-email" />
+    </div>
+    @if(getEmailErrors()){
+    <div class="validation-error-message">
+      {{ getEmailErrors() }}
+    </div>
+    }
+    <!-- <div class="button-wrapper"> -->
+    <button type="submit" [disabled]="responseSignal().pending" class="link">
+      <span class="verify">Send Link</span>
+      <span class="verify"></span>
+    </button>
     <div>
       <p class="remember-password">
         Remember password? <Span [routerLink]="['/login']">Login</Span>
       </p>
     </div>
-  </div>
+    <!-- </div> -->
+  </form>
 </section>

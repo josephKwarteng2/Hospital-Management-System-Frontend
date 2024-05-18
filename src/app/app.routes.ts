@@ -22,6 +22,13 @@ export const routes: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent,
   },
+  {
+    path: 'auth/password-reset/:otp/:id/:email',
+    loadComponent: () =>
+      import('../app/auth/components/new-password/new-password.component').then(
+        (m) => m.NewPasswordComponent
+      ),
+  },
 
   ...AccountsRoute,
 ];

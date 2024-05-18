@@ -45,8 +45,6 @@ export class SignupFormComponent implements OnInit {
   private signupProgressService: SignupService = inject(SignupService);
   private emailService: EmailService = inject(EmailService);
   private toastService: ToastService = inject(ToastService);
-  public errorMessage = '';
-  public successMessage = '';
 
   signupForm: FormGroup = new FormGroup({
     firstname: new FormControl('', [Validators.required]),

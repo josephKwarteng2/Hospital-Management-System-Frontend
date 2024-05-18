@@ -16,3 +16,13 @@ section {
 .remember-password span:hover {
   text-decoration: underline;
 }
+
+button[disabled] .loader,
+.form-submitted .loader {
+  display: block;
+}
+
+button[disabled] .verify,
+.form-submitted .verify {
+  visibility: hidden;
+}

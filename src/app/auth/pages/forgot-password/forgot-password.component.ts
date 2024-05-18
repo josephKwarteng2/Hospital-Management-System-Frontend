@@ -23,27 +23,21 @@ import { OtpComponent } from '../../components/otp/otp.component';
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css', '../../styles/styles.css'],
 })
-export class ForgotPasswordComponent implements OnInit {
-  public formField: InputFields = 'email';
-  subscriptions: Subscription[] = [];
-
-  public passwordResetToggle: PasswordResetToggleService = inject(
-    PasswordResetToggleService
-  );
-
-  ngOnInit(): void {}
-
-  public toggleSubscription() {
-    const toggSubscription = this.passwordResetToggle.data.subscribe({
-      next: (data) => {
-        this.formField = data;
-      },
-    });
-
-    this.subscriptions.push(toggSubscription);
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach((sub) => sub.unsubscribe());
-  }
+export class ForgotPasswordComponent {
+  // public formField: InputFields = 'email';
+  // subscriptions: Subscription[] = [];
+  // public passwordResetToggle: PasswordResetToggleService = inject(
+  //   PasswordResetToggleService
+  // );
+  // ngOnInit(): void {}
+  // public toggleSubscription() {
+  //   const toggSubscription = this.passwordResetToggle.data.subscribe({
+  //     next: (data) => {
+  //       this.formField = data;
+  //     },
+  //   });
+  //   this.subscriptions.push(toggSubscription);
+  // }
+  // ngOnDestroy(): void {
+  //   this.subscriptions.forEach((sub) => sub.unsubscribe());
 }
