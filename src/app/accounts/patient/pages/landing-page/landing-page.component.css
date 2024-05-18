@@ -153,8 +153,14 @@ section {
     width: 30%;
     button {
       position: relative;
-      top: -20%;
+      top: -24px;
       left: 70%;
+      background: var(--primary-color);
+      padding: 10px 16px;
+      border: none;
+      color: #fff;
+      font-family: "MontserratRegular";
+      border-radius: 8.058px;
     }
   }
 }
