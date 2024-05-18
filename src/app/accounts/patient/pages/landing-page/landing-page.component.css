@@ -143,6 +143,22 @@ section {
   }
 }
 
+.signup-for-tips {
+  background: var(--primary-color);
+  .signup-for-tips-content h1 {
+    color: #fff;
+  }
+
+  .input-container {
+    width: 30%;
+    button {
+      position: relative;
+      top: -20%;
+      left: 70%;
+    }
+  }
+}
+
 @media (max-width: 414px) {
   .hero-content {
     display: flex;
