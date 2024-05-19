@@ -61,6 +61,10 @@
   width: 100%;
 }
 
+.navbar-content.active {
+  color: var(--primary-color);
+}
+
 .btns-wrapper {
   padding: 0 5%;
   .btn-primary {

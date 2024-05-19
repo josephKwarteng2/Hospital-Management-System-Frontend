@@ -1,1 +1,57 @@
-<p>home works!</p>
+<main>
+  <app-auth-nav />
+  <section>
+    <header>
+      <h2>Schedule an appointment with a doctor</h2>
+    </header>
+  </section>
+  <div class="appointment-section">
+    <app-book-appointment />
+  </div>
+  <div class="search-doctor-section">
+    <h2>Find Doctors by Categories</h2>
+    <amalitech-input placeholder="Search Doctor by name" />
+  </div>
+
+  <section class="category">
+    <div class="pediatrics">
+      <img src="assets/images/patients/pediatrics.svg" />
+      <p>Pediatrician</p>
+    </div>
+    <div class="pediatrics">
+      <img src="assets/images/patients/ophthalmology.svg" />
+      <p>Ophthalmologist</p>
+    </div>
+    <div class="pediatrics">
+      <img src="assets/images/patients/neurology.svg" />
+      <p>Neurologist</p>
+    </div>
+    <div class="pediatrics">
+      <img src="assets/images/patients/dental.svg" />
+      <p>Dentist</p>
+    </div>
+    <div class="pediatrics">
+      <img src="assets/images/patients/gynecology.svg" />
+      <p>Gynecologist</p>
+    </div>
+    <div class="pediatrics">
+      <img src="assets/images/patients/immunology.svg" />
+      <p>Immunologist</p>
+    </div>
+  </section>
+  <summary>
+    <div class="doctor-grid">
+      <div class="doctor-card" *ngFor="let doctor of doctors">
+        <div class="profile-section">
+          <img [src]="doctor.image" />
+          <p>{{ doctor.name }}</p>
+        </div>
+        <div class="doctor-info">
+          <p>{{ doctor.specialty }}</p>
+          <p>{{ doctor.availability }}</p>
+          <button>Book Appointment</button>
+        </div>
+      </div>
+    </div>
+  </summary>
+</main>

@@ -14,6 +14,7 @@ export class AuthService {
   });
 
   private http: HttpClient = inject(HttpClient);
+  private loggedIn = false;
 
   doctorRegistration(user: User): Observable<User> {
     return this.http.post<User>(
@@ -64,5 +65,9 @@ export class AuthService {
       { body },
       { headers: this.headers }
     );
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn;
   }
 }
