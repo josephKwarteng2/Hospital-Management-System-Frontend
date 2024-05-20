@@ -1,57 +1,83 @@
-/* main {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-
-div {
+.background {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   z-index: -1;
-  height: 100%;
-  overflow: hidden;
-}
-
-img {
-  width: 40%;
-  height: 40%;
-  object-fit: cover;
-} */
-
-div {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-  height: 100%;
-  overflow: hidden;
-}
-
-main {
-  position: relative;
-  /* z-index: 1; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   height: 100vh;
-  padding: 20px;
-  width: 70%;
-  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--primary-color);
 }
 
-img {
-  max-width: 50%;
-  height: auto;
-  margin-left: 20%;
+.img-illustration {
+  padding: 30% 10%;
 }
 
-p {
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-family: "MontserratRegular";
+}
+
+.remember-me p {
+  position: relative;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.remember-me p:after {
+  content: "";
+  position: absolute;
+  background: #287dfd;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.remember-me p {
+  color: #287dfd;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "MontserratMedium";
+}
+
+.remember-me p:hover:after {
+  width: 100%;
+  cursor: pointer;
+  color: #287dfd;
+}
+
+#remember {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #7c817d;
+}
+
+.no-account {
+  font-family: "MontserratRegular";
+  text-align: center;
   margin-top: 20px;
-  font-size: 24px;
-  color: #100f0f;
+  font-size: 12px;
+  color: #667085;
+  margin-top: 30px;
+}
+
+.no-account span {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.no-account span:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-height: 700px) {
+  .img-illustration {
+    padding: 20% 10%;
+  }
 }

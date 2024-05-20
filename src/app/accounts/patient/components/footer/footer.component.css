@@ -10,7 +10,6 @@
 }
 
 .logo {
-  /* padding: 0 10%; */
   p {
     width: 80%;
     padding: 1% 0;
@@ -33,6 +32,22 @@
       }
     }
   }
+}
+
+.footer-bottom {
+  display: flex;
+  height: 10vh;
+  padding: 0 10%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  align-self: stretch;
+  background: #f9fafb;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
 }
 
 @media only screen and (max-height: 700px) {

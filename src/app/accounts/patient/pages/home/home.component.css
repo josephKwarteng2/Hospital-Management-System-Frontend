@@ -1,13 +1,11 @@
-body {
-  background: #fdfdfd;
-}
-
 section {
   header {
     background: var(--primary-base, #f3fcfa);
+    height: 20vh;
     h2 {
-      padding: 10% 30%;
-      font-size: 24px;
+      text-align: center;
+      padding: 6% 30%;
+      font-size: 2rem;
       font-family: "MontserratSemiBold";
     }
   }
@@ -49,13 +47,14 @@ img {
 .category {
   display: flex;
   justify-content: space-between;
-  /* gap: 40px; */
+  gap: 14px;
   padding: 5% 10%;
 }
 
 .pediatrics {
   display: flex;
   padding: 10px;
+  width: 30%;
   align-items: center;
   gap: 10px;
   border-radius: 9.519px;
@@ -65,30 +64,17 @@ img {
 }
 .doctor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
   padding: 0 10%;
+  margin-bottom: 40%;
 }
-
-/* .doctor-card {
-  display: flex;
-  width: 50%;
-  padding: 22.503px 18.217px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  flex-shrink: 0;
-  border-radius: 21.431px;
-  border: 1px solid var(--Gray-200, #eaecf0);
-  background: #fff;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
-} */
 
 .doctor-card {
   display: flex;
-  width: 80%;
+  width: 100%;
   padding: 22.503px 18.217px;
-  height: 240px;
+  height: 270px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
@@ -102,5 +88,139 @@ img {
 .profile-section {
   display: flex;
   justify-content: space-between;
-  padding: 0 10%;
+  gap: 20px;
+}
+
+.btns-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  p {
+    font-family: "MontserratSemiBold";
+    font-size: 12px;
+    color: #287dfd;
+    cursor: pointer;
+  }
+}
+button {
+  gap: 20px;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  padding: 10px 20px;
+  border-radius: 8.058px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: "MontserratRegular";
+}
+
+button:hover {
+  background: #16c798;
+}
+
+.name {
+  font-family: "MontserratBold";
+  font-size: 1.2rem;
+  color: #1d2939;
+}
+
+.specialty {
+  font-family: "MontserratSemiBold";
+  color: #464646;
+}
+
+.hospital-name {
+  font-size: 12px;
+}
+@media only screen and (max-height: 700px) {
+  section {
+    header {
+      background: var(--primary-base, #f3fcfa);
+      h2 {
+        text-align: center;
+        padding: 10% 30%;
+        font-size: 24px;
+        font-family: "MontserratSemiBold";
+      }
+    }
+  }
+
+  .appointment-section {
+    padding: 3% 10%;
+    .appointment-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 10% 6%;
+      h2 {
+        font-family: "MontserratSemiBold";
+        font-size: 2.5rem;
+        color: #1d2939;
+      }
+      p {
+        padding: 5% 0;
+        color: #1d2939;
+      }
+    }
+  }
+
+  .search-doctor-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+  }
+
+  amalitech-input {
+    --inputComponentWidth: 100%;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .category {
+    display: flex;
+    justify-content: space-between;
+    padding: 5% 10%;
+  }
+
+  .pediatrics {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 9.519px;
+    background: #fff;
+
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+  .doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 0 10%;
+  }
+
+  .doctor-card {
+    display: flex;
+    width: 100%;
+    padding: 22.503px 18.217px;
+    height: 270px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+    border-radius: 21.431px;
+    border: 1px solid var(--Gray-200, #eaecf0);
+    background: #fff;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-section {
+    display: flex;
+    justify-content: space-between;
+  }
 }

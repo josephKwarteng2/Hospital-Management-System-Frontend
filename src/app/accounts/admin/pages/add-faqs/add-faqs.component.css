@@ -26,7 +26,6 @@ main {
   margin-bottom: 20px;
   h2 {
     color: #3d3d3d;
-    /* padding: 2% 0; */
   }
 }
 
@@ -71,6 +70,7 @@ label {
   border: 1px solid #d0d5dd;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
+
 .input-answer:focus {
   border-radius: 8px;
   border: 1px solid var(--input-focused-stroke);
@@ -78,6 +78,7 @@ label {
     0px 0px 0px 4px rgba(125, 228, 204, 0.15);
   outline: var(--input-focused-stroke);
 }
+
 .auth-input::placeholder {
   color: var(--font-color-grey);
   font-family: "MontserratRegular";

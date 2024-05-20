@@ -210,6 +210,66 @@ amalitech-accordion {
   --accordionFontFamily: "MontserratMedium";
 }
 
+span.animated-text {
+  display: block;
+}
+
+@media (min-width: 60.5625em) and (max-width: 70.5625em) {
+  span.animated-text {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  span.animated-text {
+    display: inline;
+  }
+}
+
+span.animated-text {
+  color: #ffcc00;
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  font-size: inherit;
+  width: max-content;
+  height: max-content;
+}
+
+span.animated-text::before,
+span.animated-text::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+span.animated-text.typewriter::before {
+  background: #f3fcfa;
+  animation: typewriter 2s steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+span.animated-text.typewriter::after {
+  width: 0.125em;
+  background: #ffcc00;
+  animation: typewriter 2s steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
 @media (max-width: 1440px) {
   section {
     padding: 10% 0;
@@ -451,5 +511,91 @@ amalitech-accordion {
     --openedAccordionBorder: 0.063rem solid #f6f6f8;
     --accordionFocusColor: #eb9c7;
     --accordionFontFamily: "MontserratMedium";
+  }
+}
+
+@media (max-width: 414px) {
+  section {
+    padding: 10% 0;
+    background: var(--primary-base, #f3fcfa);
+    width: 100%;
+    height: 75vh;
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      padding: 15% 6%;
+      justify-content: space-between;
+      .hero-text h1 {
+        font-family: "MontserratBold";
+        font-size: 2.9rem;
+        text-align: start;
+        width: 100%;
+        color: var(--font-color-dark);
+        span {
+          color: var(--lightning-yellow);
+        }
+      }
+
+      .hero-text p {
+        font-family: "MontserratRegular";
+        color: #3d3d3d;
+        padding: 5% 0;
+      }
+
+      img {
+        width: 50%;
+        height: 50%;
+        margin-top: -8%;
+      }
+    }
+    .buttons-wrapper {
+      display: flex;
+      padding: 10% 6%;
+      gap: 40px;
+      margin-top: -20%;
+
+      .btn-demo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: none;
+        color: #3c3d3c;
+        padding: 10px 20px;
+        border-radius: 8.058px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid #3c3d3c;
+        font-family: "MontserratRegular";
+        font-size: 14.102px;
+      }
+      .btn-appointment {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: var(--primary-color);
+        color: var(--bg-color);
+        padding: 10px 20px;
+        border-radius: 8.058px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        font-family: "MontserratRegular";
+        font-size: 14.102px;
+      }
+      .btn-demo:hover {
+        background: #3c3d3c;
+        transition: ease-in-out 0.3s;
+        color: #fff;
+      }
+      .btn-demo:hover svg {
+        stroke: #fff;
+      }
+      .btn-appointment:hover {
+        background: #16c798;
+        transition: ease-in-out 0.3s;
+      }
+    }
   }
 }

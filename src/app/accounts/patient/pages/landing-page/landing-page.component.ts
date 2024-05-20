@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { AuthNavComponent } from '../../../../auth/components/auth-nav/auth-nav.component';
 import { ServicesCardComponent } from '../../components/services-card/services-card.component';
 import { TrusteesCardComponent } from '../../components/trustees-card/trustees-card.component';
@@ -27,6 +33,33 @@ import { FooterComponent } from '../../components/footer/footer.component';
 export class LandingPageComponent {
   authService: AuthService = inject(AuthService);
   router: Router = inject(Router);
+  @ViewChild('animatedText', { static: false })
+  animatedText?: ElementRef<HTMLSpanElement>;
+
+  texts: string[] = ['Specialist', 'Dentist', 'OB-GYNs', 'Dermatologist'];
+  currentText?: string;
+  intervalId: any;
+
+  ngOnInit() {
+    this.updateText();
+    this.intervalId = setInterval(() => this.updateText(), 4000);
+  }
+
+  updateText() {
+    this.currentText =
+      this.texts[Math.floor(Math.random() * this.texts.length)];
+    document.documentElement.style.setProperty(
+      '--typewriterCharacters',
+      this.currentText.length.toString()
+    );
+
+    const span = this.animatedText?.nativeElement;
+    if (span) {
+      span.classList.remove('typewriter');
+      void span.offsetWidth;
+      span.classList.add('typewriter');
+    }
+  }
 
   bookAppointment() {
     if (this.authService.isLoggedIn()) {

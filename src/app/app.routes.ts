@@ -3,12 +3,17 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { SignupComponent } from './auth/pages/signup/signup.component';
 import { ForgotPasswordComponent } from './auth/pages/forgot-password/forgot-password.component';
 import { AccountsRoute } from './accounts/accounts.routes';
-import { OtpComponent } from './auth/components/otp/otp.component';
+import { LandingPageComponent } from './accounts/patient/pages/landing-page/landing-page.component';
+LandingPageComponent;
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/landing-page',
     pathMatch: 'full',
+  },
+  {
+    path: 'landing-page',
+    component: LandingPageComponent,
   },
   {
     path: 'login',

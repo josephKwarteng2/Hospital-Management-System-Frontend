@@ -13,7 +13,12 @@
     <p [routerLink]="['/pricing']">Pricing</p>
     <p [routerLink]="['/Contact-us']">Contact Us</p>
     <p [routerLink]="['/about-us']">About Us</p>
-    <span>Are you a Doctor?</span>
+    <div class="doctor-dropdown">
+      <span class="dropdown-toggle">Are you a Doctor?</span>
+      <div class="dropdown-menu">
+        <p [routerLink]="['/login']">Login</p>
+      </div>
+    </div>
   </div>
   <div class="btns-wrapper" [routerLink]="['/patient/login']">
     <button class="btn-primary" [routerLink]="['/patient/login']">Login</button>

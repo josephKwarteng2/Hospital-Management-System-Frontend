@@ -44,14 +44,21 @@
       <div class="doctor-card" *ngFor="let doctor of doctors">
         <div class="profile-section">
           <img [src]="doctor.image" />
-          <p>{{ doctor.name }}</p>
+          <div>
+            <p class="name">{{ doctor.name }}</p>
+            <p class="specialty">{{ doctor.specialty }}</p>
+            <p class="hospital-name">{{ doctor.hospitalName }}</p>
+          </div>
         </div>
         <div class="doctor-info">
-          <p>{{ doctor.specialty }}</p>
           <p>{{ doctor.availability }}</p>
+        </div>
+        <div class="btns-wrapper">
+          <p>View Profile</p>
           <button>Book Appointment</button>
         </div>
       </div>
     </div>
   </summary>
+  <app-footer />
 </main>
