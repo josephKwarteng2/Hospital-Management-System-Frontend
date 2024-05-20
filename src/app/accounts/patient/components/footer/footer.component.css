@@ -1,0 +1,54 @@
+.footer-card {
+  background: #eaecf0;
+  padding: 96px 0px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.logo {
+  /* padding: 0 10%; */
+  p {
+    width: 80%;
+    padding: 1% 0;
+    color: #656565;
+  }
+}
+
+.ul-container {
+  display: flex;
+  gap: 130px;
+  ul {
+    list-style: none;
+    li {
+      padding: 10px 0;
+      color: #656565;
+      cursor: pointer;
+      p {
+        color: #98a2b3;
+        font-family: "MontserratSemiBold";
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .ul-container {
+    display: flex;
+    gap: 70px;
+    ul {
+      list-style: none;
+      li {
+        padding: 10px 0;
+        color: #656565;
+        cursor: pointer;
+        p {
+          font-family: "MontserratSemiBold";
+        }
+      }
+    }
+  }
+}

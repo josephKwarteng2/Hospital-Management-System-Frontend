@@ -85,7 +85,7 @@ section {
   padding: 3% 0;
   h1 {
     font-size: 4rem;
-    font-family: "MontserratSemiBold";
+    font-family: "MontserratBold";
   }
   p {
     font-family: "MontserratRegular";
@@ -107,8 +107,9 @@ section {
       color: #1d2939;
     }
     p {
-      padding: 5% 0;
+      padding: 3% 0;
       color: #1d2939;
+      width: 60%;
     }
   }
 }
@@ -119,11 +120,15 @@ section {
 .mid-bottom {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #000;
+  align-items: center;
+
   .mid-bottom-content {
     h1 {
       font-family: "MontserratSemiBold";
       font-size: 3rem;
       color: #1d2939;
+      text-align: start;
     }
     p {
       font-family: "MontserratRegular";
@@ -132,7 +137,7 @@ section {
 }
 
 .section-trustees {
-  padding: 10% 0;
+  padding: 5% 0;
 
   h1 {
     text-align: center;
@@ -178,11 +183,14 @@ section {
 }
 .section-faqs {
   h1 {
+    padding: 1% 0;
     text-align: center;
+    font-size: 3rem;
+    font-family: "MontserratBold";
   }
   p {
     text-align: center;
-    padding: 1% 22%;
+    padding: 0 12%;
     color: #656565;
   }
 }
@@ -324,14 +332,13 @@ amalitech-accordion {
     text-align: center;
     padding: 3% 0;
     h1 {
-      font-size: 3rem;
-      font-family: "MontserratSemiBold";
+      font-size: 2.5rem;
+      font-family: "MontserratBold";
     }
     p {
-      padding: 5% 0;
       font-family: "MontserratRegular";
       color: #3d3d3d;
-      padding: 0 15%;
+      padding: 1% 15%;
     }
   }
 
@@ -347,8 +354,9 @@ amalitech-accordion {
         color: #1d2939;
       }
       p {
-        padding: 5% 0;
+        padding: 3% 0;
         color: #1d2939;
+        width: 100%;
       }
     }
   }
@@ -356,13 +364,15 @@ amalitech-accordion {
   .mid-section-content img {
     margin-top: -10%;
   }
+
   .mid-bottom {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #000;
     .mid-bottom-content {
       h1 {
         font-family: "MontserratSemiBold";
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: #1d2939;
       }
       p {
@@ -372,11 +382,12 @@ amalitech-accordion {
   }
 
   .section-trustees {
-    padding: 10% 0;
+    padding: 5% 0;
 
     h1 {
       text-align: center;
       font-family: "MontserratBold";
+      font-size: 2.5rem;
     }
     p {
       text-align: center;
@@ -418,6 +429,7 @@ amalitech-accordion {
   .section-faqs {
     h1 {
       text-align: center;
+      font-size: 2rem;
     }
     p {
       text-align: center;
