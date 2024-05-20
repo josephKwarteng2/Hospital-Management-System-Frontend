@@ -17,12 +17,20 @@ section {
   text-decoration: underline;
 }
 
+.validation-error-message {
+  position: absolute;
+  top: 267px;
+  left: 50%;
+  color: var(--status-error);
+  font-size: 12px;
+}
+
 button[disabled] .loader,
 .form-submitted .loader {
   display: block;
 }
 
-button[disabled] .verify,
-.form-submitted .verify {
+button[disabled] .send-link,
+.form-submitted .send-link {
   visibility: hidden;
 }

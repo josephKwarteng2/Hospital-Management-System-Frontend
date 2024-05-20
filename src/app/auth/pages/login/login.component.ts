@@ -74,6 +74,14 @@ export class LoginComponent {
 
   public login(event: Event) {
     event.preventDefault();
+
+    if (this.loginForm.invalid) {
+      return this.toastService.toast({
+        message: 'Please fill in all fields',
+        status: 'error',
+      });
+    }
+
     this.responseSignal.set({ success: null, error: null, pending: true });
     this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
       next: (response) => this.handleLoginSuccess(response),
@@ -94,10 +102,19 @@ export class LoginComponent {
   }
 
   handleLoginError(err: any) {
-    this.toastService.toast({ message: err.error.message, status: 'error' });
+    let errorMessage = 'An unknown error occurred';
+
+    if (err.status === 0) {
+      errorMessage =
+        'Network error: Please check your internet connection or try again later';
+    } else if (err.error && err.error.message) {
+      errorMessage = err.error.message;
+    }
+
+    this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
-      error: err.error.message,
+      error: err.error.message || errorMessage,
       pending: false,
     });
   }

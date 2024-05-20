@@ -1,7 +1,7 @@
 .services-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
   padding: 20px;
 }
 
@@ -36,4 +36,22 @@
 
 .services-card-content p {
   color: #666;
+}
+
+@media (max-width: 1440px) {
+  .services-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .services-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px;
+  }
 }

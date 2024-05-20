@@ -17,16 +17,16 @@
       {{ getEmailErrors() }}
     </div>
     }
-    <!-- <div class="button-wrapper"> -->
-    <button type="submit" [disabled]="responseSignal().pending" class="link">
-      <span class="verify">Send Link</span>
-      <span class="verify"></span>
-    </button>
-    <div>
-      <p class="remember-password">
-        Remember password? <Span [routerLink]="['/login']">Login</Span>
-      </p>
+    <div class="button-wrapper">
+      <button type="submit" [disabled]="responseSignal().pending">
+        <span class="send-link">Send Link</span>
+        <span class="loader"></span>
+      </button>
+      <div>
+        <p class="remember-password">
+          Remember password? <Span [routerLink]="['/login']">Login</Span>
+        </p>
+      </div>
     </div>
-    <!-- </div> -->
   </form>
 </section>

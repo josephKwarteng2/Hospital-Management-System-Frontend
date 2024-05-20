@@ -57,6 +57,14 @@ export class SignupFormComponent implements OnInit {
 
   public registerDoctor(event: Event) {
     event.preventDefault();
+
+    if (this.signupForm.invalid) {
+      return this.toastService.toast({
+        message: 'Please fill in all fields',
+        status: 'error',
+      });
+    }
+
     const formData = this.signupForm.value;
     this.emailService.setEmail(formData.email);
     this.responseSignal.set({ success: null, error: null, pending: true });
@@ -82,10 +90,18 @@ export class SignupFormComponent implements OnInit {
   }
 
   private handleSignupError(err: any) {
-    this.toastService.toast({ message: err.error.message, status: 'error' });
+    let errorMessage = 'An unknown error occurred';
+
+    if (err.status === 0) {
+      errorMessage =
+        'Network error: Please check your internet connection or try again later';
+    } else if (err.error && err.error.message) {
+      errorMessage = err.error.message;
+    }
+    this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
-      error: { message: err.error.message },
+      error: err.error.message || errorMessage,
       pending: false,
     });
   }

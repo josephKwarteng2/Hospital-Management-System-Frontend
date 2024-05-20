@@ -57,7 +57,13 @@ export class EmailFormComponent {
 
   public submitEmailForm() {
     const email = this.emailForm.get('email')?.value;
-
+    if (this.emailForm.invalid) {
+      return this.toastService.toast({
+        message: 'Please enter a valid email address',
+        status: 'error',
+      });
+    }
+    this.responseSignal.set({ success: null, error: null, pending: true });
     if (email) {
       this.emailService.setEmail(email);
       this.authService.sendEmail(email).subscribe({
@@ -65,7 +71,7 @@ export class EmailFormComponent {
           this.handleEmailSubmissionSuccess(res);
         },
         error: (err) => {
-          this.handleSignupError(err);
+          this.handleEmailSubmissionError(err);
         },
       });
     }
@@ -81,11 +87,19 @@ export class EmailFormComponent {
     });
   }
 
-  private handleSignupError(err: any) {
-    this.toastService.toast({ message: err.error.message, status: 'error' });
+  private handleEmailSubmissionError(err: any) {
+    let errorMessage = 'An unknown error occurred';
+
+    if (err.status === 0) {
+      errorMessage =
+        'Network error: Please check your internet connection or try again later';
+    } else if (err.error && err.error.message) {
+      errorMessage = err.error.message;
+    }
+    this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
-      error: { message: err.error.message },
+      error: err.error.message || errorMessage,
       pending: false,
     });
   }
