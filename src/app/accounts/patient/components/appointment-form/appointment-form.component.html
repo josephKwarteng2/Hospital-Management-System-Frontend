@@ -1,0 +1,24 @@
+<summary>
+  <div class="appointment-form">
+    <h3>Book Appointment</h3>
+    <div class="input-section">
+      <app-custom-input-field
+        [label]="'Name*'"
+        [placeholder]="'Enter Name'"
+        [type]="'text'"
+        [Control]="appointmentForm.get('name')"
+      />
+      <!-- <app-custom-input-field
+        [label]="'Email'"
+        [placeholder]="'Enter e-mail'"
+        [Control]="appointmentForm.get('email')"
+      /> -->
+      <!-- <app-custom-input-field
+        [label]="'Date'"
+        [Control]="appointmentForm.get('date')"
+      /> -->
+      <!-- <amalitech-date-picker [label]="'Date'" /> -->
+    </div>
+  </div>
+  <div class="doctor-info"></div>
+</summary>

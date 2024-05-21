@@ -1,0 +1,16 @@
+summary {
+  header {
+    background: var(--primary-base, #f3fcfa);
+    height: 20vh;
+    h2 {
+      text-align: center;
+      padding: 6% 30%;
+      font-size: 2rem;
+      font-family: "MontserratSemiBold";
+    }
+  }
+}
+
+section {
+  padding: 5% 10%;
+}

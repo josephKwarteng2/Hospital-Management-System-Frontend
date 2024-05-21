@@ -3,6 +3,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthNavComponent } from 'src/app/auth/components/auth-nav/auth-nav.component';
 import { BookAppointmentComponent } from '../../components/book-appointment/book-appointment.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { RouterLink } from '@angular/router';
+import { CustomInputFieldComponent } from '@components/custom-input-field/custom-input-field.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
     AuthNavComponent,
     BookAppointmentComponent,
     FooterComponent,
+    RouterLink,
+    CustomInputFieldComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

@@ -1,0 +1,29 @@
+summary {
+  display: flex;
+  gap: 30px;
+}
+
+.appointment-form {
+  width: 100%;
+  height: 300px;
+  border: 1px solid red;
+  h3 {
+    text-align: center;
+    font-family: "MontserratSemiBold";
+    font-size: 1.5rem;
+    padding: 1% 0;
+  }
+}
+
+.doctor-info {
+  width: 40%;
+  height: 300px;
+  border: 1px solid red;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

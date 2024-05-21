@@ -5,9 +5,7 @@
       <h2>Schedule an appointment with a doctor</h2>
     </header>
   </section>
-  <div class="appointment-section">
-    <app-book-appointment />
-  </div>
+  <div class="appointment-section"></div>
   <div class="search-doctor-section">
     <h2>Find Doctors by Categories</h2>
     <amalitech-input placeholder="Search Doctor by name" />
@@ -55,7 +53,12 @@
         </div>
         <div class="btns-wrapper">
           <p>View Profile</p>
-          <button>Book Appointment</button>
+          <button
+            [routerLink]="['/patient/book-appointment']"
+            routerLinkActive="router-link-active"
+          >
+            Book Appointment
+          </button>
         </div>
       </div>
     </div>

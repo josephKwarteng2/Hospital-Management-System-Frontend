@@ -1,10 +1,10 @@
 section {
   header {
     background: var(--primary-base, #f3fcfa);
-    height: 20vh;
+    height: 25vh;
     h2 {
       text-align: center;
-      padding: 6% 30%;
+      padding: 7% 30%;
       font-size: 2rem;
       font-family: "MontserratSemiBold";
     }
@@ -54,14 +54,20 @@ img {
 .pediatrics {
   display: flex;
   padding: 10px;
-  width: 30%;
+  height: 70px;
+  width: 40%;
   align-items: center;
   gap: 10px;
   border-radius: 9.519px;
   background: #fff;
-
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
+
+.pediatrics img {
+  width: 50px;
+  height: 50px;
+}
+
 .doctor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -91,11 +97,15 @@ img {
   gap: 20px;
 }
 
+.profile-section img {
+  width: 70px;
+  height: 70px;
+}
+
 .btns-wrapper {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 16px;
+  gap: 160px;
   margin-top: 20px;
   p {
     font-family: "MontserratSemiBold";
@@ -139,9 +149,10 @@ button:hover {
   section {
     header {
       background: var(--primary-base, #f3fcfa);
+      height: 30vh;
       h2 {
         text-align: center;
-        padding: 10% 30%;
+        padding: 8% 30%;
         font-size: 24px;
         font-family: "MontserratSemiBold";
       }
@@ -194,9 +205,14 @@ button:hover {
     gap: 10px;
     border-radius: 9.519px;
     background: #fff;
-
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   }
+
+  .pediatrics img {
+    width: 30px;
+    height: 30px;
+  }
+
   .doctor-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

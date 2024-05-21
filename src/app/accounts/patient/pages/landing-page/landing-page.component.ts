@@ -13,6 +13,12 @@ import { CustomInputFieldComponent } from '@components/custom-input-field/custom
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,6 +30,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     TrusteesCardComponent,
     CustomInputFieldComponent,
     FooterComponent,
+    ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -39,6 +46,10 @@ export class LandingPageComponent {
   texts: string[] = ['Specialist', 'Dentist', 'OB-GYNs', 'Dermatologist'];
   currentText?: string;
   intervalId: any;
+
+  emailForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+  });
 
   ngOnInit() {
     this.updateText();
