@@ -16,6 +16,7 @@ import { SelectValueAccessorDirective } from 'src/app/shared/directives/select-v
 import { ToastService } from '@components/toast/toast.service';
 import { CurrentUserService } from 'src/app/auth/services/current-user.service';
 import { ToastComponent } from '@components/toast/toast.component';
+import { LoginUserResponse } from 'src/app/shared/models/auth.types';
 
 @Component({
   selector: 'app-patient-login-form',
@@ -92,8 +93,8 @@ export class PatientLoginFormComponent {
     });
   }
 
-  handleLoginSuccess(response: User) {
-    this.currentUserService.setCurrentUser(response);
+  handleLoginSuccess(response: LoginUserResponse) {
+    this.currentUserService.setCurrentUser(response.user);
     this.toastService.toast({ message: 'Login Successful', status: 'success' });
     this.responseSignal.set({
       success: { message: 'Login Successful' },

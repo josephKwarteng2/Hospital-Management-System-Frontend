@@ -20,6 +20,7 @@ import {
 } from 'src/app/shared/models/interfaces';
 import { PatientSignupProgressService } from '../../../services/patient-signup-progress.service';
 import { EmailService } from 'src/app/auth/services/email.service';
+import { SignUpUserResponse } from 'src/app/shared/models/auth.types';
 
 @Component({
   selector: 'app-patient-signup-form',
@@ -85,12 +86,15 @@ export class PatientSignupFormComponent {
     });
   }
 
-  private handleSignupSuccess(response: User) {
+  private handleSignupSuccess(response: SignUpUserResponse) {
     this.nextFormFieldAfterDelay('patientOtp', 3000);
-    this.currentUserService.setCurrentUser(response);
-    this.toastService.toast({ message: response.message, status: 'success' });
+    this.currentUserService.setCurrentUser(response.user);
+    this.toastService.toast({
+      message: response.user.message,
+      status: 'success',
+    });
     this.responseSignal.set({
-      success: { message: response.message },
+      success: { message: response.user.message },
       error: null,
       pending: false,
     });

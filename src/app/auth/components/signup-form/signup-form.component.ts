@@ -19,6 +19,7 @@ import {
 import { EmailService } from '../../services/email.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { ToastService } from '@components/toast/toast.service';
+import { SignUpUserResponse } from 'src/app/shared/models/auth.types';
 
 @Component({
   selector: 'app-signup-form',
@@ -39,6 +40,7 @@ export class SignupFormComponent implements OnInit {
     error: null,
     pending: false,
   });
+
   private doctorRegistrationService: AuthService = inject(AuthService);
   private currentUserService: CurrentUserService = inject(CurrentUserService);
   private signupProgressService: SignupService = inject(SignupService);
@@ -77,12 +79,15 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
-  private handleSignupSuccess(response: User) {
+  private handleSignupSuccess(response: SignUpUserResponse) {
     this.nextFormFieldAfterDelay('otpForm', 3000);
-    this.currentUserService.setCurrentUser(response);
-    this.toastService.toast({ message: response.message, status: 'success' });
+    this.currentUserService.setCurrentUser(response.user);
+    this.toastService.toast({
+      message: response.user.message,
+      status: 'success',
+    });
     this.responseSignal.set({
-      success: { message: response.message },
+      success: { message: response.user.message },
       error: null,
       pending: false,
     });

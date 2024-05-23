@@ -1,4 +1,4 @@
-<div class="overlay" *ngIf="showNavLink" (click)="toggleNavLink()"></div>
+<div class="overlay" *ngIf="showNavLink"></div>
 <div class="hamburger-icon" (click)="toggleNavLink()">
   <img src="assets/images/admin/list.svg" alt="Menu" />
 </div>
@@ -20,28 +20,7 @@
       </div>
     </div>
   </div>
-  <ng-container *ngIf="isLoggedIn$ | async; else notLoggedIn">
-    <div class="profile-wrapper">
-      <ng-container *ngIf="user$ | async as user">
-        <img
-          [src]="user.profilePicture"
-          alt="Profile Picture"
-          class="profile-pic"
-        />
-        <div class="profile-dropdown">
-          <span class="dropdown-toggle">{{ user.firstName }}</span>
-          <div class="dropdown-menu">
-            <p (click)="logout()">Logout</p>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-  </ng-container>
-  <ng-template #notLoggedIn>
-    <div class="btns-wrapper">
-      <button class="btn-primary" [routerLink]="['/patient/login']">
-        Login
-      </button>
-    </div>
-  </ng-template>
+  <div class="btns-wrapper" [routerLink]="['/patient/login']">
+    <button class="btn-primary" [routerLink]="['/patient/login']">Login</button>
+  </div>
 </nav>
