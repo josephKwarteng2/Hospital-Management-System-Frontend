@@ -1,0 +1,10 @@
+<main>
+  <div>
+    <app-auth-nav></app-auth-nav>
+  </div>
+  @if (formField === 'patientSignupForm') {
+  <app-patient-signup-form />
+  } @else if (formField === 'patientOtp') {
+  <app-patient-otp></app-patient-otp>
+  }
+</main>

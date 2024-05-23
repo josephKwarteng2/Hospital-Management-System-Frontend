@@ -1,0 +1,73 @@
+.main-container {
+  display: flex;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  z-index: -1;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--primary-color);
+}
+
+.icon-user {
+  position: relative;
+  top: -18px;
+  left: -145px;
+}
+
+.terms-and-conditions {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #344054;
+}
+
+.terms-and-conditions span {
+  text-decoration: underline;
+}
+
+.has-account {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #667085;
+}
+
+.has-account span {
+  color: #287dfd;
+}
+
+.has-account span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button[disabled] .loader,
+.form-submitted .loader {
+  display: block;
+}
+
+button[disabled] .signup,
+.form-submitted .signup {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .icon-user {
+    position: relative;
+    top: -18px;
+    left: -124px;
+  }
+}
+
+@media screen and (max-width: 360px) and (max-height: 740px) {
+  .icon-user {
+    position: relative;
+    top: -18px;
+    left: -110px;
+  }
+}

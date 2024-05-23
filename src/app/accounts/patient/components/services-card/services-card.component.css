@@ -38,6 +38,10 @@
   color: #666;
 }
 
+.services-card:hover {
+  transform: scale(1.05);
+}
+
 @media (max-width: 1440px) {
   .services-container {
     display: grid;

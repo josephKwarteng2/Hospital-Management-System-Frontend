@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     OtpComponent,
-    SignupComponent,
     SignupFormComponent,
     BackgroundIllustrationComponent,
     AuthNavComponent,
@@ -26,7 +25,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   public formField: SignUpProgress = 'signupForm';
   subscriptions: Subscription[] = [];
-  router: Router = inject(Router);
+  private router: Router = inject(Router);
   public signupProgress: SignupService = inject(SignupService);
 
   ngOnInit(): void {

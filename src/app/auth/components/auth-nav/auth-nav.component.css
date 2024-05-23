@@ -19,6 +19,7 @@
   padding: 0 5%;
   column-gap: 10px;
 }
+
 .navbar img {
   width: 55px;
   height: 55px;
@@ -27,7 +28,7 @@
 .navbar-content {
   display: flex;
   align-items: center;
-  column-gap: 70px;
+  column-gap: 50px;
   justify-content: center;
   cursor: pointer;
   span {
@@ -42,7 +43,6 @@
 
 .navbar-content p {
   position: relative;
-  letter-spacing: 0.5px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -129,6 +129,21 @@
   display: block;
 }
 
+.profile-section {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+}
+
+.profile {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--primary-color);
+}
+
 @media only screen and (max-height: 700px) {
   .navbar {
     position: fixed;
@@ -177,6 +192,14 @@
     width: 100%;
     cursor: pointer;
     color: var(--primary-color);
+  }
+
+  .profile {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--primary-color);
   }
 }
 

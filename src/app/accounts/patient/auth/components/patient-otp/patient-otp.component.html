@@ -1,0 +1,26 @@
+<app-toast />
+<section class="auth-card">
+  <div class="auth-card-content">
+    <header class="auth-card-header">
+      <h2>Verify your email</h2>
+      <p>We've sent an email with a verification code to {{ email }}</p>
+    </header>
+    <div class="auth-card-body">
+      <form [formGroup]="otpForm" (submit)="otpVerification()">
+        <app-custom-input-field
+          [label]="'Verification Code'"
+          [placeholder]="'Enter verification code'"
+          [control]="otpForm.get('otp')"
+        />
+
+        <div class="resend-btn" (click)="resendOtp(email)">
+          <span>Resend code</span>
+        </div>
+        <button type="submit" [disabled]="responseSignal().pending">
+          <span class="verify">Verify Email</span>
+          <span class="loader"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

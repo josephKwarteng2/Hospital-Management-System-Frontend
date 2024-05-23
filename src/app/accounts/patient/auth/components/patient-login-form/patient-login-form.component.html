@@ -10,44 +10,46 @@
         <h2>Login to your account</h2>
       </header>
       <div class="auth-card-body">
-        <app-custom-input-field
-          [label]="'Email Address'"
-          [type]="'email'"
-          [placeholder]="'Enter your email'"
-          [control]="loginForm.get('email')"
-        ></app-custom-input-field>
-        <img
-          src="assets/images/doctor/email.svg"
-          alt="email-icon"
-          class="icon-email"
-        />
-        <app-custom-input-field
-          [label]="'Password'"
-          [type]="'password'"
-          [placeholder]="'Enter your password'"
-          [control]="loginForm.get('password')"
-          [showPassword]="false"
-        ></app-custom-input-field>
-        <img
-          src="assets/images/doctor/password.svg"
-          alt="password-icon"
-          class="icon-password"
-        />
-        <div class="remember-me">
-          <label id="remember">
-            <input type="checkbox" name="rememberMe" />
-            Remember me
-          </label>
-          <p routerLink="['/forgot-password]">Forgot Your Password?</p>
-        </div>
-        <button type="submit">
-          <span class="login">Login</span>
-          <span class="loader"></span>
-        </button>
+        <form [formGroup]="loginForm" (submit)="login($event)">
+          <app-custom-input-field
+            [label]="'Email Address'"
+            [type]="'email'"
+            [placeholder]="'Enter your email'"
+            [control]="loginForm.get('email')"
+          />
+          <img
+            src="assets/images/doctor/email.svg"
+            alt="email-icon"
+            class="icon-email"
+          />
+          <app-custom-input-field
+            [label]="'Password'"
+            [type]="'password'"
+            [placeholder]="'Enter your password'"
+            [control]="loginForm.get('password')"
+            [showPassword]="false"
+          />
+          <img
+            src="assets/images/doctor/password.svg"
+            alt="password-icon"
+            class="icon-password"
+          />
+          <div class="remember-me">
+            <label id="remember">
+              <input type="checkbox" name="rememberMe" />
+              Remember me
+            </label>
+            <p routerLink="['/forgot-password]">Forgot Your Password?</p>
+          </div>
+          <button type="submit">
+            <span class="login">Login</span>
+            <span class="loader"></span>
+          </button>
+        </form>
 
         <p class="no-account">
           Don't have an account?
-          <span [routerLink]="['/signup']">Sign Up</span>
+          <span [routerLink]="['/patient/signup']">Sign Up</span>
         </p>
       </div>
     </div>

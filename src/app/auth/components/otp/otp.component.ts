@@ -15,7 +15,6 @@ import {
 import { ToastService } from '@components/toast/toast.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { SignupService } from '../../services/signup.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { EmailService } from '../../services/email.service';
@@ -41,8 +40,7 @@ export class OtpComponent implements OnInit {
   public errorMessage: string | null = null;
   public successMessage: string | null = null;
   public email = '';
-  authService: AuthService = inject(AuthService);
-  private router: Router = inject(Router);
+  private authService: AuthService = inject(AuthService);
   private signupProgress: SignupService = inject(SignupService);
   private currentUserService: CurrentUserService = inject(CurrentUserService);
   private emailService: EmailService = inject(EmailService);

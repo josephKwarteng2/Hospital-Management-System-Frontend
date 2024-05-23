@@ -3,10 +3,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { PatientLoginComponent } from './auth/pages/patient-login/patient-login.component';
+import { PatientSignupComponent } from './auth/pages/patient-signup/patient-signup.component';
 
 export const PatientRoute: Route[] = [
   {
-    path: 'home',
+    path: 'dashboard',
     component: HomeComponent,
   },
   {
@@ -21,5 +22,9 @@ export const PatientRoute: Route[] = [
   {
     path: 'login',
     component: PatientLoginComponent,
+  },
+  {
+    path: 'signup',
+    component: PatientSignupComponent,
   },
 ];

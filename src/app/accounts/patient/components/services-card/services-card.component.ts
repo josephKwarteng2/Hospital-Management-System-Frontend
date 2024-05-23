@@ -15,6 +15,7 @@ export class ServicesCardComponent {
       name: 'Pediatrics Services',
       description:
         'Egestas tellus nunc proin amet tellus tincidunt lacus consequat. Ultrices',
+      extraContent: 'Additional content for Service 1',
     },
     {
       picture: 'assets/images/patients/neurology.svg',

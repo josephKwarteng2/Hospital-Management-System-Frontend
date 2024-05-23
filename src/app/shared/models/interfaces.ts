@@ -4,6 +4,7 @@ export type User = {
   lastName: string;
   email: string;
   password: string;
+  profilePicture?: string;
 };
 
 export type NavLink = {
@@ -17,7 +18,7 @@ export type FAQ = {
   answer: string;
 };
 
-export type InputFields = 'email' | 'otp' | 'changePassword';
+export type InputFields = 'patientSignupForm' | 'patientOtp' | 'success';
 
 export type SignUpProgress = 'signupForm' | 'otpForm' | 'success';
 

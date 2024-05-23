@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CustomInputFieldComponent } from '../../../components/custom-input-field/custom-input-field.component';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { SignupService } from '../../services/signup.service';
@@ -41,7 +41,6 @@ export class SignupFormComponent implements OnInit {
   });
   private doctorRegistrationService: AuthService = inject(AuthService);
   private currentUserService: CurrentUserService = inject(CurrentUserService);
-  private router: Router = inject(Router);
   private signupProgressService: SignupService = inject(SignupService);
   private emailService: EmailService = inject(EmailService);
   private toastService: ToastService = inject(ToastService);
