@@ -22,6 +22,5 @@ import { ServicesListComponent } from '../../components/services-list/services-l
 })
 export class ServicesComponent {
   public handleOptionSelected(option: string) {
-    console.log(option);
   }
 }

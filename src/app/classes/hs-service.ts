@@ -21,7 +21,6 @@ export class HSService {
 
   protected onError(error: HttpErrorResponse) {
     if (error.status === 0) {
-      console.error(error.error);
       return throwError(() => ({
         Network: ['Error. Check connectivity and try again'],
       }));
@@ -30,7 +29,6 @@ export class HSService {
         Server: ['Cannot be reached. Please try later'],
       }));
     } else {
-      console.error(error.error);
       return throwError(() => error.error.errors);
     }
   }

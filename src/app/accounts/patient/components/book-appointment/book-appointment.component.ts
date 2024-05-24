@@ -12,7 +12,5 @@ import { CustomInputFieldComponent } from '@components/custom-input-field/custom
   styleUrl: './book-appointment.component.css',
 })
 export class BookAppointmentComponent {
-  onChange(event: Event) {
-    console.log(event);
-  }
+  onChange(event: Event) {}
 }

@@ -51,7 +51,5 @@ export class FaqsComponent {
     this.router.navigate(['/admin/add-faqs']);
   }
 
-  public onChange(event: any) {
-    console.log(event);
-  }
+  public onChange(event: any) {}
 }

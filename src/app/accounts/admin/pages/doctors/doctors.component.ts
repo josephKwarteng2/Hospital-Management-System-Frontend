@@ -32,10 +32,7 @@ export class DoctorsComponent {
 
   public openModal() {
     this.modalService.openModal();
-    console.log('hey');
   }
 
-  public onChange(event: any) {
-    console.log(event);
-  }
+  public onChange(event: any) {}
 }

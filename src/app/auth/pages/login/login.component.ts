@@ -93,7 +93,6 @@ export class LoginComponent {
   }
 
   handleLoginSuccess(response: LoginUserResponse) {
-    console.log('Login response:', response);
     this.currentUserService.setCurrentUser(response.user);
     this.roleService.setCurrentUserRole(response.user);
     this.toastService.toast({
@@ -117,7 +116,6 @@ export class LoginComponent {
     } else if (err.error && err.error.message) {
       errorMessage = err.error.message;
     }
-    console.error('Login error:', err);
     this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
