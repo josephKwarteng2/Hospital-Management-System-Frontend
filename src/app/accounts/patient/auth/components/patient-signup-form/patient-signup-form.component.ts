@@ -88,7 +88,7 @@ export class PatientSignupFormComponent {
 
   private handleSignupSuccess(response: SignUpUserResponse) {
     this.nextFormFieldAfterDelay('patientOtp', 3000);
-    this.currentUserService.setCurrentUser(response.user);
+    // this.currentUserService.setCurrentUser(response.user);
     this.toastService.toast({
       message: response.user.message,
       status: 'success',

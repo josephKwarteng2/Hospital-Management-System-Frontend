@@ -72,7 +72,7 @@ export class PatientOtpComponent {
   }
 
   private handleVerificationSuccess(response: User) {
-    this.currentUserService.setCurrentUser(response);
+    // this.currentUserService.setCurrentUser(response);
     this.nextFormFieldAfterDelay('success', 3000);
     this.toastService.toast({ message: response.message, status: 'success' });
     this.responseSignal.set({

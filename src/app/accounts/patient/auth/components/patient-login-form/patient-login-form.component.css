@@ -76,6 +76,16 @@
   text-decoration: underline;
 }
 
+button[disabled] .loader,
+.form-submitted .loader {
+  display: block;
+}
+
+button[disabled] .login,
+.form-submitted .login {
+  visibility: hidden;
+}
+
 @media only screen and (max-height: 700px) {
   .img-illustration {
     padding: 20% 10%;

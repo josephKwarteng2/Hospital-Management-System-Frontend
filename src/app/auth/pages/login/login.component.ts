@@ -12,12 +12,13 @@ import {
 import { getControlErrors } from '../../../shared/utils/constants';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { InitialSig, User } from '../../../shared/models/interfaces';
+import { InitialSig } from '../../../shared/models/interfaces';
 import { SelectValueAccessorDirective } from 'src/app/shared/directives/select-value-accessor.directive';
 import { ToastService } from '@components/toast/toast.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { LoginUserResponse } from 'src/app/shared/models/auth.types';
+import { RoleService } from 'src/app/shared/services/role.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -44,7 +45,7 @@ export class LoginComponent {
   doctorLoginService: AuthService = inject(AuthService);
   private currentUserService: CurrentUserService = inject(CurrentUserService);
   private toastService: ToastService = inject(ToastService);
-
+  roleService: RoleService = inject(RoleService);
   public errorMessage = '';
   public successMessage = '';
   loginForm: FormGroup = new FormGroup({
@@ -92,9 +93,11 @@ export class LoginComponent {
   }
 
   handleLoginSuccess(response: LoginUserResponse) {
+    console.log('Login response:', response);
     this.currentUserService.setCurrentUser(response.user);
+    this.roleService.setCurrentUserRole(response.user);
     this.toastService.toast({
-      message: 'Login Succresponseessful',
+      message: 'Login Successful',
       status: 'success',
     });
     this.responseSignal.set({
@@ -114,7 +117,7 @@ export class LoginComponent {
     } else if (err.error && err.error.message) {
       errorMessage = err.error.message;
     }
-
+    console.error('Login error:', err);
     this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,

@@ -86,7 +86,7 @@ export class PatientLoginFormComponent {
     }
 
     this.responseSignal.set({ success: null, error: null, pending: true });
-    this.doctorLoginService.doctorLogin(this.loginForm.value).subscribe({
+    this.doctorLoginService.patientLogin(this.loginForm.value).subscribe({
       next: (response) => this.handleLoginSuccess(response),
 
       error: (err) => this.handleLoginError(err),

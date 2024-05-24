@@ -1,10 +1,13 @@
+export type Role = 'patient' | 'doctor' | 'admin';
+
 export type User = {
   message: string;
   firstName: string;
   lastName: string;
   email: string;
   password: string;
-  profilePicture?: string;
+  profilePicture: string | null;
+  role: Role;
 };
 
 export interface LoginUserDetails {
@@ -29,4 +32,8 @@ export interface SignUpUserDetails {
 
 export interface SignUpUserResponse {
   user: User;
+}
+
+export interface APIResponse {
+  message: string;
 }
