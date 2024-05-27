@@ -95,7 +95,7 @@ button:disabled {
 .loader {
   position: absolute;
   top: 50%;
-  left: 62%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: none;
   width: 20px;

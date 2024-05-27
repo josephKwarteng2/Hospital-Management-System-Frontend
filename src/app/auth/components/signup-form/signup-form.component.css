@@ -38,7 +38,7 @@ button[disabled] .loader,
 
 button[disabled] .signup,
 .form-submitted .signup {
-  visibility: hidden;
+  visibility: show;
 }
 
 @media screen and (max-width: 390px) and (max-height: 844px) {
