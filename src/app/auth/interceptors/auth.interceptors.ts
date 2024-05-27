@@ -1,9 +1,9 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { TokenService } from '../services/token.service';
+import { AccessTokenService } from '../services/accesstoken.service';
 
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
-  const tokenService = inject(TokenService);
+  const tokenService = inject(AccessTokenService);
   const token = tokenService.get();
   request = request.clone({
     setHeaders: {

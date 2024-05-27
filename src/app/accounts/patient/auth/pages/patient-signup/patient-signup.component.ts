@@ -6,17 +6,11 @@ import { Subscription } from 'rxjs';
 import { AuthNavComponent } from 'src/app/auth/components/auth-nav/auth-nav.component';
 import { Router } from '@angular/router';
 import { PatientSignupProgressService } from '../../../services/patient-signup-progress.service';
-import { PatientOtpComponent } from '../../components/patient-otp/patient-otp.component';
 
 @Component({
   selector: 'app-patient-signup',
   standalone: true,
-  imports: [
-    CommonModule,
-    PatientSignupFormComponent,
-    AuthNavComponent,
-    PatientOtpComponent,
-  ],
+  imports: [CommonModule, PatientSignupFormComponent, AuthNavComponent],
   templateUrl: './patient-signup.component.html',
   styleUrls: [
     './patient-signup.component.css',

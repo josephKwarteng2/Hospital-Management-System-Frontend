@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { RoleService } from 'src/app/shared/services/role.service';
 
 @Component({
   selector: 'app-auth-nav',
@@ -12,7 +11,6 @@ import { RoleService } from 'src/app/shared/services/role.service';
 })
 export class AuthNavComponent implements OnInit {
   public showNavLink = false;
-  public roleService: RoleService = inject(RoleService);
 
   ngOnInit() {}
   toggleNavLink() {

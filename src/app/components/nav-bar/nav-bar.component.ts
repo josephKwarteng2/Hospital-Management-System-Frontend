@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { User } from 'src/app/shared/models/interfaces';
 
 @Component({
   selector: 'app-nav-bar',

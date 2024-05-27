@@ -7,11 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { CustomInputFieldComponent } from '@components/custom-input-field/custom-input-field.component';
-import {
-  InitialSig,
-  SignUpProgress,
-  User,
-} from 'src/app/shared/models/interfaces';
+import { SignUpProgress } from 'src/app/shared/models/interfaces';
+import { InitialSig, User } from 'src/app/shared/models/auth.types';
 import { ToastService } from '@components/toast/toast.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { AuthService } from '../../services/auth.service';
@@ -67,7 +64,6 @@ export class OtpComponent implements OnInit {
   }
 
   private handleVerificationSuccess(response: User) {
-    this.currentUserService.setCurrentUser(response);
     this.nextFormFieldAfterDelay('success', 3000);
     this.toastService.toast({ message: response.message, status: 'success' });
     this.responseSignal.set({

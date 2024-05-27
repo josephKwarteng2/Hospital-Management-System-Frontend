@@ -9,9 +9,9 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { InitialSig } from 'src/app/shared/models/interfaces';
+import { InitialSig } from 'src/app/shared/models/auth.types';
 import { AuthService } from '../../services/auth.service';
-import { User } from 'src/app/shared/models/interfaces';
+import { User } from 'src/app/shared/models/auth.types';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from '@components/toast/toast.service';
 import { ToastComponent } from '@components/toast/toast.component';

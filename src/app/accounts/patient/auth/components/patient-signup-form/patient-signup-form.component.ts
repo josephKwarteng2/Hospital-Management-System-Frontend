@@ -13,11 +13,8 @@ import { ToastService } from '@components/toast/toast.service';
 import { AuthNavComponent } from 'src/app/auth/components/auth-nav/auth-nav.component';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { CurrentUserService } from 'src/app/auth/services/current-user.service';
-import {
-  InitialSig,
-  InputFields,
-  User,
-} from 'src/app/shared/models/interfaces';
+import { InputFields } from 'src/app/shared/models/interfaces';
+import { InitialSig, User } from 'src/app/shared/models/auth.types';
 import { PatientSignupProgressService } from '../../../services/patient-signup-progress.service';
 import { EmailService } from 'src/app/auth/services/email.service';
 import { SignUpUserResponse } from 'src/app/shared/models/auth.types';
@@ -42,7 +39,6 @@ import { SignUpUserResponse } from 'src/app/shared/models/auth.types';
 export class PatientSignupFormComponent {
   private authService: AuthService = inject(AuthService);
   private toastService: ToastService = inject(ToastService);
-  private currentUserService: CurrentUserService = inject(CurrentUserService);
   public signupProgress: PatientSignupProgressService = inject(
     PatientSignupProgressService
   );
@@ -88,7 +84,6 @@ export class PatientSignupFormComponent {
 
   private handleSignupSuccess(response: SignUpUserResponse) {
     this.nextFormFieldAfterDelay('patientOtp', 3000);
-    // this.currentUserService.setCurrentUser(response.user);
     this.toastService.toast({
       message: response.user.message,
       status: 'success',

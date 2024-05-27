@@ -10,8 +10,7 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { User } from 'src/app/shared/models/interfaces';
-import { InitialSig } from 'src/app/shared/models/interfaces';
+import { User, InitialSig } from 'src/app/shared/models/auth.types';
 import { ToastService } from '@components/toast/toast.service';
 import { EmailService } from '../../services/email.service';
 import { ToastComponent } from '@components/toast/toast.component';
@@ -78,7 +77,6 @@ export class EmailFormComponent {
   }
 
   private handleEmailSubmissionSuccess(res: User) {
-    this.currentUserService.setCurrentUser(res);
     this.toastService.toast({ message: res.message, status: 'success' });
     this.responseSignal.set({
       success: { message: res.message },

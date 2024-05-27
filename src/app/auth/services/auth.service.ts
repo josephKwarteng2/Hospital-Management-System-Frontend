@@ -1,19 +1,15 @@
 import { Injectable, inject } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-} from '@angular/common/http';
-import { Observable, tap, catchError, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import {
   LoginUserDetails,
   LoginUserResponse,
   SignUpUserDetails,
   SignUpUserResponse,
 } from 'src/app/shared/models/auth.types';
-import { RoleService } from 'src/app/shared/services/role.service';
 import { environment } from 'src/environment/config';
-import { User } from 'src/app/shared/models/interfaces';
+import { User } from 'src/app/shared/models/auth.types';
+import { AccessTokenService } from './accesstoken.service';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +21,7 @@ export class AuthService {
   });
 
   private http: HttpClient = inject(HttpClient);
-  private roleService: RoleService = inject(RoleService);
+  private tokenService: AccessTokenService = inject(AccessTokenService);
   private loggedIn = false;
 
   doctorRegistration(user: SignUpUserDetails) {
@@ -35,25 +31,19 @@ export class AuthService {
     );
   }
 
-  doctorLogin(user: LoginUserDetails) {
+  login(user: LoginUserDetails) {
     return this.http
-      .post<LoginUserResponse>(`${environment.baseUrl}/auth/login`, user)
+      .post<LoginUserResponse>(`${environment.baseUrl}/auth/login`, user, {
+        headers: this.headers,
+      })
       .pipe(
-        tap((response: LoginUserResponse) => {
-          if (response && response.user) {
-            this.roleService.setCurrentUserRole(response.user);
-          } else {
-            console.warn('Response does not contain user data:', response);
+        map((response) => {
+          if (response) {
+            this.tokenService.set(response.token);
           }
-        }),
-        catchError(this.handleError)
+          return response;
+        })
       );
-  }
-
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    return throwError(
-      () => new Error(error.message || 'Unknown error occurred')
-    );
   }
 
   patientSignup(user: SignUpUserDetails) {
@@ -61,27 +51,6 @@ export class AuthService {
       `${environment.baseUrl}/auth/patient/register
     `,
       user
-    );
-  }
-
-  patientLogin(user: LoginUserDetails) {
-    return this.http
-      .post<LoginUserResponse>(`${environment.baseUrl}/auth/login`, user)
-      .pipe(
-        tap((response: LoginUserResponse) => {
-          if (response && response.user) {
-            this.roleService.setCurrentUserRole(response.user);
-          } else {
-            console.warn('Response does not contain user data:', response);
-          }
-        }),
-        catchError(this.handlePatientLoginError)
-      );
-  }
-
-  private handlePatientLoginError(error: HttpErrorResponse): Observable<never> {
-    return throwError(
-      () => new Error(error.message || 'Unknown error occurred')
     );
   }
 

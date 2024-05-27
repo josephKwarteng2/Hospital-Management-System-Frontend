@@ -76,7 +76,7 @@ export class LandingPageComponent {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['/patient/home']);
     } else {
-      this.router.navigate(['/patient/login']);
+      this.router.navigate(['/login']);
     }
   }
 }

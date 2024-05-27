@@ -84,7 +84,7 @@ button[disabled] .loader,
 
 button[disabled] .login,
 .form-submitted .login {
-  visibility: hidden;
+  visibility: show;
 }
 
 @media only screen and (max-height: 700px) {

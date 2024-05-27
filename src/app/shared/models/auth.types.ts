@@ -1,7 +1,12 @@
-export type Role = 'patient' | 'doctor' | 'admin';
+export enum Role {
+  ADMINISTRATOR = 'ADMINISTRATOR',
+  DOCTOR = 'DOCTOR',
+  PATIENT = 'PATIENT',
+}
 
 export type User = {
   message: string;
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -18,7 +23,10 @@ export interface LoginUserDetails {
 }
 
 export interface LoginUserResponse {
+  message: string;
   user: User;
+  token: string;
+  role: Role;
 }
 
 export interface SignUpUserDetails {
@@ -32,7 +40,14 @@ export interface SignUpUserDetails {
 
 export interface SignUpUserResponse {
   user: User;
+  message: string;
 }
+
+export type InitialSig = {
+  success: { user?: User; message: string } | null;
+  error: { message: string } | null;
+  pending: boolean;
+};
 
 export interface APIResponse {
   message: string;

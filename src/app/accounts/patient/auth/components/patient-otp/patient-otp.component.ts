@@ -7,11 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { CustomInputFieldComponent } from '@components/custom-input-field/custom-input-field.component';
-import {
-  InitialSig,
-  InputFields,
-  User,
-} from 'src/app/shared/models/interfaces';
+import { InputFields } from 'src/app/shared/models/interfaces';
+import { InitialSig, User } from 'src/app/shared/models/auth.types';
 import { ToastService } from '@components/toast/toast.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { AuthService } from 'src/app/auth/services/auth.service';

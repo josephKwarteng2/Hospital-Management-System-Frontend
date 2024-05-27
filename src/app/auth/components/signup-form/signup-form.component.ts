@@ -11,11 +11,8 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { SignupService } from '../../services/signup.service';
-import {
-  InitialSig,
-  SignUpProgress,
-  User,
-} from 'src/app/shared/models/interfaces';
+import { SignUpProgress } from 'src/app/shared/models/interfaces';
+import { InitialSig, User } from 'src/app/shared/models/auth.types';
 import { EmailService } from '../../services/email.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { ToastService } from '@components/toast/toast.service';
@@ -81,7 +78,6 @@ export class SignupFormComponent implements OnInit {
 
   private handleSignupSuccess(response: SignUpUserResponse) {
     this.nextFormFieldAfterDelay('otpForm', 3000);
-    this.currentUserService.setCurrentUser(response.user);
     this.toastService.toast({
       message: response.user.message,
       status: 'success',
