@@ -6,11 +6,17 @@ import { Subscription } from 'rxjs';
 import { AuthNavComponent } from 'src/app/auth/components/auth-nav/auth-nav.component';
 import { Router } from '@angular/router';
 import { PatientSignupProgressService } from '../../../services/patient-signup-progress.service';
+import { PatientOtpComponent } from '../../components/patient-otp/patient-otp.component';
 
 @Component({
   selector: 'app-patient-signup',
   standalone: true,
-  imports: [CommonModule, PatientSignupFormComponent, AuthNavComponent],
+  imports: [
+    CommonModule,
+    PatientSignupFormComponent,
+    AuthNavComponent,
+    PatientOtpComponent,
+  ],
   templateUrl: './patient-signup.component.html',
   styleUrls: [
     './patient-signup.component.css',
@@ -38,7 +44,7 @@ export class PatientSignupComponent implements OnInit {
       next: (data) => {
         this.formField = data;
         if (data === 'success') {
-          this.router.navigate(['/patient/dashboard']);
+          this.router.navigate(['/patient/landing-page']);
         }
       },
     });

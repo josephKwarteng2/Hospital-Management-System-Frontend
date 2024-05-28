@@ -1,4 +1,7 @@
-<div class="overlay" *ngIf="showNavLink"></div>
+@if (showNavLink) {
+<div class="overlay"></div>
+}
+
 <div class="hamburger-icon" (click)="toggleNavLink()">
   <img src="assets/images/admin/list.svg" alt="Menu" />
 </div>
@@ -13,14 +16,34 @@
     <p [routerLink]="['/patient/calendar']">Pricing</p>
     <p [routerLink]="['/Contact-us']">Contact Us</p>
     <p [routerLink]="['/about-us']">About Us</p>
-    <div class="doctor-dropdown">
+
+    @if (!currentUser?.isLoggedIn) {
+    <div>
       <span class="dropdown-toggle">Are you a Doctor?</span>
       <div class="dropdown-menu">
         <p [routerLink]="['/signup']">Register</p>
       </div>
     </div>
+    }
   </div>
-  <div class="btns-wrapper" [routerLink]="['/login']">
+
+  @if (!currentUser?.isLoggedIn) {
+  <div class="btns-wrapper">
     <button class="btn-primary" [routerLink]="['/login']">Login</button>
+    <button class="btn-primary" [routerLink]="['/patient/signup']">
+      Register
+    </button>
   </div>
+  } @if (currentUser?.isLoggedIn) {
+  <div class="user-info">
+    <img
+      [src]="
+        currentUser?.data?.profilePicture ||
+        'assets/images/doctor/user-profile.svg'
+      "
+      alt="Profile Picture"
+    />
+    <span>{{ currentUser?.data?.firstName }}</span>
+  </div>
+  }
 </nav>

@@ -7,6 +7,7 @@ export enum Role {
 export type User = {
   message: string;
   id: string;
+  fullName: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -41,6 +42,13 @@ export interface SignUpUserDetails {
 export interface SignUpUserResponse {
   user: User;
   message: string;
+}
+
+export interface HttpError {
+  status: number;
+  error: {
+    message: string;
+  };
 }
 
 export type InitialSig = {

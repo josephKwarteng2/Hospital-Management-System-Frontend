@@ -17,9 +17,11 @@
       </g>
     </svg>
   </button>
-  <ul class="dropdown-menu" *ngIf="isOpen">
+  @if (isOpen) {
+  <ul class="dropdown-menu">
     <li *ngFor="let option of options" (click)="onSelect(option)">
       {{ option }}
     </li>
   </ul>
+  }
 </div>

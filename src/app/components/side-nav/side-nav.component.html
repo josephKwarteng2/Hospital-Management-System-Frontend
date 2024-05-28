@@ -1,4 +1,7 @@
-<div class="overlay" *ngIf="showNav"></div>
+@if (showNav) {
+<div class="overlay"></div>
+
+} ]
 <div class="hamburger-icon" (click)="toggleNav()">
   <img src="assets/images/admin/list.svg" alt="Menu" />
 </div>

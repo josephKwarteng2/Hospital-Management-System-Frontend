@@ -17,3 +17,5 @@ export function getControlErrors(
   }
   return '';
 }
+
+export const ACCESS_TOKEN_KEY = 'accessToken';

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { ACCESS_TOKEN_KEY } from 'src/app/shared/utils/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccessTokenService {
-  get(key: string = 'accessToken'): unknown {
+  get(key: string = ACCESS_TOKEN_KEY): unknown {
     try {
       const item = localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
@@ -13,7 +14,7 @@ export class AccessTokenService {
     }
   }
 
-  set(data: unknown, key: string = 'accessToken') {
+  set(data: unknown, key: string = ACCESS_TOKEN_KEY) {
     try {
       localStorage.setItem(key, JSON.stringify(data));
     } catch (error) {
@@ -21,7 +22,7 @@ export class AccessTokenService {
     }
   }
 
-  clear(key: string = 'accessToken') {
+  clear(key: string = ACCESS_TOKEN_KEY) {
     try {
       localStorage.removeItem(key);
     } catch (error) {

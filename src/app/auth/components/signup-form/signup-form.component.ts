@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { SignupService } from '../../services/signup.service';
 import { SignUpProgress } from 'src/app/shared/models/interfaces';
-import { InitialSig, User } from 'src/app/shared/models/auth.types';
+import { HttpError, InitialSig } from 'src/app/shared/models/auth.types';
 import { EmailService } from '../../services/email.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { ToastService } from '@components/toast/toast.service';
@@ -77,6 +77,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   private handleSignupSuccess(response: SignUpUserResponse) {
+    this.currentUserService.setUser(response.user);
     this.nextFormFieldAfterDelay('otpForm', 3000);
     this.toastService.toast({
       message: response.user.message,
@@ -89,7 +90,7 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
-  private handleSignupError(err: any) {
+  private handleSignupError(err: HttpError) {
     let errorMessage = 'An unknown error occurred';
 
     if (err.status === 0) {
@@ -101,7 +102,7 @@ export class SignupFormComponent implements OnInit {
     this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
-      error: err.error.message || errorMessage,
+      error: { message: err.error.message || errorMessage },
       pending: false,
     });
   }

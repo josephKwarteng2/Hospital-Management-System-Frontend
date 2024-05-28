@@ -67,6 +67,8 @@
 
 .btns-wrapper {
   padding: 0 5%;
+  display: flex;
+  gap: 30px;
   .btn-primary {
     background-color: var(--primary-color);
     color: var(--bg-color);

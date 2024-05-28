@@ -1,8 +1,6 @@
-import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, catchError, of, tap } from 'rxjs';
-import { User, LoginUserResponse } from 'src/app/shared/models/auth.types';
-import { AccessTokenService } from './accesstoken.service';
-import { environment } from 'src/environment/config';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { User } from 'src/app/shared/models/auth.types';
 
 export interface UserData {
   data: User | null;
@@ -13,20 +11,21 @@ export interface UserData {
   providedIn: 'root',
 })
 export class CurrentUserService {
-  private userSubject = new BehaviorSubject<User | null>(null);
-  user$ = this.userSubject.asObservable();
+  private currentUserSubject = new BehaviorSubject<UserData>({
+    data: null,
+    isLoggedIn: false,
+  });
 
-  constructor() {}
+  public currentUser = this.currentUserSubject.asObservable();
 
-  setUser(user: User) {
-    this.userSubject.next(user);
+  public get userValue(): UserData {
+    return this.currentUserSubject.value;
   }
 
-  clearUser() {
-    this.userSubject.next(null);
-  }
-
-  getUser(): User | null {
-    return this.userSubject.getValue();
+  public setUser(user: User): void {
+    this.currentUserSubject.next({
+      data: user,
+      isLoggedIn: true,
+    });
   }
 }

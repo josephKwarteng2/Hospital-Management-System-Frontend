@@ -12,11 +12,12 @@ import {
 import { getControlErrors } from '../../../shared/utils/constants';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { InitialSig } from 'src/app/shared/models/auth.types';
+import { HttpError, InitialSig } from 'src/app/shared/models/auth.types';
 import { SelectValueAccessorDirective } from 'src/app/shared/directives/select-value-accessor.directive';
 import { ToastService } from '@components/toast/toast.service';
 import { ToastComponent } from '@components/toast/toast.component';
 import { LoginUserResponse } from 'src/app/shared/models/auth.types';
+import { CurrentUserService } from '../../services/current-user.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -40,11 +41,10 @@ export class LoginComponent {
     pending: false,
   });
 
+  private currentUserService: CurrentUserService = inject(CurrentUserService);
   private router: Router = inject(Router);
   doctorLoginService: AuthService = inject(AuthService);
   private toastService: ToastService = inject(ToastService);
-  public errorMessage = '';
-  public successMessage = '';
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -89,6 +89,7 @@ export class LoginComponent {
   }
 
   handleLoginSuccess(response: LoginUserResponse) {
+    this.currentUserService.setUser(response.user);
     this.toastService.toast({
       message: 'Login Successful',
       status: 'success',
@@ -106,7 +107,7 @@ export class LoginComponent {
         this.router.navigate(['/admin-dashboard']);
         break;
       case 'doctor':
-        this.router.navigate(['/doctor-dashboard']);
+        this.router.navigate(['/doctor/dashboard']);
         break;
       case 'patient':
         this.router.navigate(['/patient-dashboard']);
@@ -117,7 +118,7 @@ export class LoginComponent {
     }
   }
 
-  handleLoginError(err: any) {
+  handleLoginError(err: HttpError) {
     let errorMessage = 'An unknown error occurred';
 
     if (err.status === 0) {
@@ -130,7 +131,7 @@ export class LoginComponent {
     this.toastService.toast({ message: errorMessage, status: 'error' });
     this.responseSignal.set({
       success: null,
-      error: errorMessage || err.error.message,
+      error: { message: errorMessage || err.error.message },
       pending: false,
     });
   }
